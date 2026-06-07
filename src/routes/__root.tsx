@@ -78,7 +78,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "4NodeTech — Software, AI & Growth Engines for Modern Businesses" },
+      { title: "4NodeTech — Software, AI & Growth Engines" },
       { name: "description", content: "4NodeTech is a software, AI and digital growth agency. We build products, automate workflows, and scale brands through technology and design." },
       { name: "author", content: "4NodeTech" },
       { property: "og:title", content: "4NodeTech — Software, AI & Growth Engines" },
@@ -93,6 +93,29 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "4NodeTech",
+          url: "https://fournodetech.lovable.app",
+          logo: "https://fournodetech.lovable.app/favicon.ico",
+          description: "Software, AI and digital growth agency helping businesses launch, automate, and scale.",
+          sameAs: ["https://4nodetech.com"],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "4NodeTech",
+          url: "https://fournodetech.lovable.app",
+        }),
+      },
     ],
   }),
   shellComponent: RootShell,
