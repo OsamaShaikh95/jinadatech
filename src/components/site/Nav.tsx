@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
+import { ThemeToggle } from "./ThemeToggle";
 
 const links = [
   { to: "/", label: "Home" },
@@ -31,19 +32,25 @@ export function Nav() {
               </Link>
             ))}
           </nav>
-          <Link
-            to="/contact"
-            className="hidden md:inline-flex btn-primary-glow hover:[&]:btn-primary-glow-hover px-4 py-2 rounded-xl text-sm font-medium"
-          >
-            Start a project
-          </Link>
-          <button
-            className="md:hidden text-foreground p-2"
-            onClick={() => setOpen(!open)}
-            aria-label="Toggle menu"
-          >
-            {open ? <X size={20} /> : <Menu size={20} />}
-          </button>
+          <div className="hidden md:flex items-center gap-2">
+            <ThemeToggle />
+            <Link
+              to="/contact"
+              className="btn-primary-glow hover:[&]:btn-primary-glow-hover px-4 py-2 rounded-xl text-sm font-medium"
+            >
+              Start a project
+            </Link>
+          </div>
+          <div className="md:hidden flex items-center gap-2">
+            <ThemeToggle />
+            <button
+              className="text-foreground p-2"
+              onClick={() => setOpen(!open)}
+              aria-label="Toggle menu"
+            >
+              {open ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </div>
         {open && (
           <div className="md:hidden glass mt-2 rounded-2xl p-4 animate-fade-up">
