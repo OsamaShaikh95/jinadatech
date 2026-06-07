@@ -38,7 +38,7 @@ export function Nav() {
               to="/contact"
               className="btn-primary-glow hover:[&]:btn-primary-glow-hover px-4 py-2 rounded-xl text-sm font-medium"
             >
-              Start a project
+              Get a Free Quote
             </Link>
           </div>
           <div className="md:hidden flex items-center gap-2">
@@ -68,7 +68,7 @@ export function Nav() {
                 </Link>
               ))}
               <Link to="/contact" onClick={() => setOpen(false)} className="mt-2 btn-primary-glow text-center px-4 py-2 rounded-xl text-sm font-medium">
-                Start a project
+                Get a Free Quote
               </Link>
             </div>
           </div>
