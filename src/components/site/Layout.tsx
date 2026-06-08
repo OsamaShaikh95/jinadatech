@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
+import { BackToTop } from "./BackToTop";
 
 export function Layout({ children }: { children: ReactNode }) {
   return (
@@ -8,6 +9,7 @@ export function Layout({ children }: { children: ReactNode }) {
       <Nav />
       <main className="flex-1 pt-28">{children}</main>
       <Footer />
+      <BackToTop />
     </div>
   );
 }
