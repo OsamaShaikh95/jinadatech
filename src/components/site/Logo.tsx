@@ -1,4 +1,5 @@
-import logoAsset from "@/assets/4node-logo.png.asset.json";
+// Served from /public so it works on any host (Lovable, Vercel, etc.).
+const logoAsset = { url: "/4node-logo.png" };
 import { Link } from "@tanstack/react-router";
 
 export function Logo({ className = "" }: { className?: string }) {
