@@ -37,15 +37,40 @@ function Contact() {
   const [sending, setSending] = useState(false);
   const serviceId = useId();
   const messageId = useId();
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setSending(true);
-    setTimeout(() => {
-      setSending(false);
-      toast.success("Message sent! We'll be in touch within one business day.");
-      (e.target as HTMLFormElement).reset();
-    }, 900);
-  };
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+
+  setSending(true);
+
+  const form = e.currentTarget;
+  const formData = new FormData(form);
+
+  try {
+    const response = await fetch(
+      "https://formspree.io/f/xjgdwjwj",
+      {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      }
+    );
+
+    if (response.ok) {
+      toast.success(
+        "Message sent! We'll be in touch within one business day."
+      );
+      form.reset();
+    } else {
+      toast.error("Failed to send message. Please try again.");
+    }
+  } catch {
+    toast.error("Failed to send message. Please try again.");
+  } finally {
+    setSending(false);
+  }
+};
 
   return (
     <Layout>
@@ -60,6 +85,11 @@ function Contact() {
 
         <div className="grid lg:grid-cols-5 gap-6">
           <form onSubmit={handleSubmit} className="lg:col-span-3 glass-strong rounded-3xl p-8 space-y-4">
+            <input
+              type="hidden"
+              name="_subject"
+              value="New Lead from 4NodeTech Website"
+            />
             <div className="grid sm:grid-cols-2 gap-4">
               <Field label="Name" name="name" placeholder="Jane Doe" />
               <Field label="Email" name="email" type="email" placeholder="you@company.com" />
