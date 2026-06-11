@@ -226,3 +226,10 @@
 @utility animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
 @utility animate-gradient { background-size: 200% 200%; animation: gradient-shift 8s ease infinite; }
 @utility animate-fade-up { animation: fade-up .8s ease-out both; }
+
+@media (pointer: fine) {
+  html.cursor-none-root,
+  html.cursor-none-root * {
+    cursor: none !important;
+  }
+}
