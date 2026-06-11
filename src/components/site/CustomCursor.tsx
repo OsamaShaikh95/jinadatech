@@ -61,8 +61,8 @@ export function CustomCursor() {
         style={{
           width: hovering ? 44 : 28,
           height: hovering ? 44 : 28,
-          borderColor: "rgba(120, 210, 255, 0.9)",
-          boxShadow: "0 0 18px rgba(60, 170, 255, 0.55)",
+          borderColor: "rgba(91, 155, 255, 0.9)",
+          boxShadow: "0 0 18px rgba(30, 111, 255, 0.55)",
           opacity: visible ? 1 : 0,
         }}
       />
@@ -73,8 +73,8 @@ export function CustomCursor() {
         style={{
           width: 8,
           height: 8,
-          background: "#5fd6ff",
-          boxShadow: "0 0 14px rgba(95, 214, 255, 0.95), 0 0 28px rgba(95, 214, 255, 0.5)",
+          background: "#1e6fff",
+          boxShadow: "0 0 14px rgba(30, 111, 255, 0.95), 0 0 28px rgba(91, 155, 255, 0.6)",
           opacity: visible ? 1 : 0,
         }}
       />
