@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import { BackToTop } from "./BackToTop";
+import { CustomCursor } from "./CustomCursor";
 
 export function Layout({ children }: { children: ReactNode }) {
   return (
