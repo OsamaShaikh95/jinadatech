@@ -1,13 +1,15 @@
-# 4NodeTech
+# Jinada Tech
 
-> Software, AI and digital growth agency. We help startups and businesses launch, automate, and scale through technology, design, and AI.
+> Jinada Tech is a modern technology partner helping startups and local businesses launch, automate, and scale through websites, mobile apps, AI automation, SEO, social media management, and business growth consulting.
 
-4NodeTech is a family-founded technology studio offering web and mobile development, AI solutions and automation, Shopify development, SEO and digital marketing, branding and lead generation, and cloud and DevOps consulting.
+## Services
+- Web Development
+- Mobile App Development
+- AI Automation
+- SEO & Marketing
+- Social Media Management
+- Business Growth Consulting
 
-## Pages
-
-- [Home](/): Overview of services, why-choose-us, and testimonials.
-- [Services](/services): Detailed list of web, mobile, AI, Shopify, SEO, branding and DevOps services.
-- [About](/about): Company story, mission, vision and core values.
-- [Portfolio](/portfolio): Selected case studies and shipped products.
-- [Contact](/contact): Project inquiry form and direct contact details.
+## Contact
+- Email: info@4nodetech.com
+- Website: https://jinadatech.com

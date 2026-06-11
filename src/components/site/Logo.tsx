@@ -1,20 +1,20 @@
-// Served from /public so it works on any host (Lovable, Vercel, etc.).
-const logoAsset = { url: "/4node-logo.png" };
 import { Link } from "@tanstack/react-router";
+
+const logoSrc = "/jinada-mark.png";
 
 export function Logo({ className = "" }: { className?: string }) {
   return (
     <Link to="/" className={`group flex items-center gap-2.5 ${className}`}>
       <div className="relative">
-        <div className="absolute inset-0 rounded-full bg-[var(--neon-purple)]/40 blur-xl group-hover:bg-[var(--neon-magenta)]/50 transition-colors" />
+        <div className="absolute inset-0 rounded-full bg-[var(--brand-blue)]/40 blur-xl group-hover:bg-[var(--brand-blue-soft)]/50 transition-colors" />
         <img
-          src={logoAsset.url}
-          alt="4NodeTech"
+          src={logoSrc}
+          alt="Jinada Tech"
           className="relative h-9 w-9 object-contain"
         />
       </div>
       <span className="font-display text-lg font-semibold tracking-tight">
-        4Node<span className="text-gradient-brand">Tech</span>
+        Jinada<span className="text-gradient-brand"> Tech</span>
       </span>
     </Link>
   );

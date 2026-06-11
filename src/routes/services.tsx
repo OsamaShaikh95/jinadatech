@@ -1,14 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Layout } from "@/components/site/Layout";
 import { Section, SectionHeader } from "@/components/site/Section";
-import { Code2, Smartphone, Brain, ShoppingBag, Search, Sparkles, Cloud, ArrowRight, Check } from "lucide-react";
+import { Code2, Smartphone, Brain, Search, Share2, TrendingUp, ArrowRight, Check } from "lucide-react";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services — Web, Mobile, AI & Growth | 4NodeTech" },
-      { name: "description", content: "Full-stack technology services: web and mobile development, AI solutions, Shopify, SEO and branding for modern businesses." },
-      { property: "og:title", content: "Services | 4NodeTech" },
+      { title: "Services — Web, Mobile, AI & Growth | Jinada Tech" },
+      { name: "description", content: "Web and mobile development, AI automation, SEO, social media and business growth consulting for modern businesses." },
+      { property: "og:title", content: "Services | Jinada Tech" },
       { property: "og:description", content: "End-to-end product, AI and growth services from a senior team." },
       { property: "og:url", content: "/services" },
     ],
@@ -18,13 +18,12 @@ export const Route = createFileRoute("/services")({
 });
 
 const services = [
-  { icon: Code2, title: "Web Development", desc: "High-performance marketing sites, dashboards and SaaS platforms on Next.js, React and edge-native stacks.", points: ["Marketing sites & landing pages", "SaaS dashboards", "Headless CMS", "Core Web Vitals"] },
+  { icon: Code2, title: "Web Development", desc: "High-performance marketing sites, dashboards and SaaS platforms on modern, edge-native stacks.", points: ["Marketing sites & landing pages", "SaaS dashboards", "Headless CMS", "Core Web Vitals"] },
   { icon: Smartphone, title: "Mobile App Development", desc: "Cross-platform and native mobile apps with delightful UX and rock-solid release pipelines.", points: ["iOS & Android", "React Native / Expo", "Offline-first", "App Store launch"] },
-  { icon: Brain, title: "AI Solutions & Automation", desc: "LLM agents, RAG systems, workflow automation and internal copilots tuned to your business.", points: ["Custom GPT agents", "RAG & vector search", "n8n / Zapier", "AI copilots"] },
-  { icon: ShoppingBag, title: "Shopify Development", desc: "High-converting storefronts with custom themes, headless commerce and conversion optimization.", points: ["Custom themes", "Headless (Hydrogen)", "Subscriptions & upsells", "CRO & A/B testing"] },
-  { icon: Search, title: "SEO & Digital Marketing", desc: "Technical SEO, programmatic content and growth experiments that compound month over month.", points: ["Technical audits", "Programmatic SEO", "Content & links", "Paid acquisition"] },
-  { icon: Sparkles, title: "Branding & Lead Generation", desc: "Identity systems, positioning and lead pipelines built around your ideal customer.", points: ["Brand identity", "Pitch & sales decks", "Outbound systems", "Landing funnels"] },
-  { icon: Cloud, title: "Cloud & DevOps Consulting", desc: "Production-grade cloud, CI/CD and observability so your team can ship without fear.", points: ["AWS / GCP / Cloudflare", "CI/CD pipelines", "Observability", "Cost optimization"] },
+  { icon: Brain, title: "AI Automation", desc: "LLM agents, RAG systems, workflow automation and internal copilots tuned to your business.", points: ["Custom GPT agents", "RAG & vector search", "n8n / Zapier", "AI copilots"] },
+  { icon: Search, title: "SEO & Marketing", desc: "Technical SEO, programmatic content and growth experiments that compound month over month.", points: ["Technical audits", "Programmatic SEO", "Content & links", "Paid acquisition"] },
+  { icon: Share2, title: "Social Media Management", desc: "On-brand content, scheduling, community and growth across every channel.", points: ["Content calendars", "Creative production", "Community management", "Analytics & reporting"] },
+  { icon: TrendingUp, title: "Business Growth Consulting", desc: "Strategy, systems and tooling to scale operations, revenue and team output sustainably.", points: ["Go-to-market strategy", "Process automation", "Tooling & stack", "KPIs & reporting"] },
 ];
 
 function Services() {
@@ -41,7 +40,7 @@ function Services() {
           {services.map((s) => (
             <div key={s.title} className="group relative glass rounded-2xl p-7 hover:border-white/20 transition">
               <div className="flex items-start gap-4">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl glass-strong text-[var(--neon-cyan)] group-hover:text-[var(--neon-magenta)] transition shrink-0">
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl glass-strong text-[var(--brand-blue)] group-hover:text-[var(--brand-blue-soft)] transition shrink-0">
                   <s.icon size={22} />
                 </div>
                 <div>
@@ -50,7 +49,7 @@ function Services() {
                   <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {s.points.map((p) => (
                       <li key={p} className="flex items-center gap-2 text-sm text-foreground/90">
-                        <Check size={14} className="text-[var(--neon-cyan)]" /> {p}
+                        <Check size={14} className="text-[var(--brand-blue)]" /> {p}
                       </li>
                     ))}
                   </ul>
