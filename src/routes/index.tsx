@@ -5,6 +5,7 @@ import {
   ArrowRight, Code2, Smartphone, Brain, Search, Share2, TrendingUp,
   Zap, ShieldCheck, Rocket, Star,
 } from "lucide-react";
+import { InteractiveDots } from "@/components/site/InteractiveDots";
 
 export const Route = createFileRoute("/")({
   head: () => ({
