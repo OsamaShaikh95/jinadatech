@@ -5,6 +5,7 @@ import {
   ArrowRight, Code2, Smartphone, Brain, Search, Share2, TrendingUp,
   Zap, ShieldCheck, Rocket, Star,
 } from "lucide-react";
+import { InteractiveDots } from "@/components/site/InteractiveDots";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -46,7 +47,8 @@ function Home() {
   return (
     <Layout>
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid pointer-events-none" />
+        <div className="absolute inset-0 bg-grid pointer-events-none opacity-40" />
+        <InteractiveDots />
         <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full bg-[var(--brand-blue)]/25 blur-[140px] animate-pulse-glow" />
         <div className="absolute top-40 right-10 w-[400px] h-[400px] rounded-full bg-[var(--brand-blue-soft)]/15 blur-[120px]" />
         <div className="absolute top-60 left-10 w-[400px] h-[400px] rounded-full bg-[var(--brand-blue)]/15 blur-[120px]" />
