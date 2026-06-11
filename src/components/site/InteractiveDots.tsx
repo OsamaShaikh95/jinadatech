@@ -16,9 +16,9 @@ export function InteractiveDots({ className = "" }: { className?: string }) {
 
     type Dot = { x: number; y: number; ox: number; oy: number; vx: number; vy: number };
     let dots: Dot[] = [];
-    const spacing = 26;
-    const radius = 130;
-    const force = 38;
+    const spacing = 14;
+    const radius = 110;
+    const force = 30;
 
     const mouse = { x: -9999, y: -9999, active: false };
 
@@ -87,10 +87,10 @@ export function InteractiveDots({ className = "" }: { className?: string }) {
 
         const near = mouse.active && dist < radius;
         ctx.beginPath();
-        ctx.arc(d.x, d.y, near ? 1.8 : 1.2, 0, Math.PI * 2);
+        ctx.arc(d.x, d.y, near ? 1.3 : 0.9, 0, Math.PI * 2);
         ctx.fillStyle = near
-          ? `rgba(91, 155, 255, ${0.55 + (1 - dist / radius) * 0.45})`
-          : "rgba(140, 170, 230, 0.28)";
+          ? `rgba(120, 200, 255, ${0.5 + (1 - dist / radius) * 0.5})`
+          : "rgba(100, 160, 230, 0.35)";
         ctx.fill();
       }
       raf = requestAnimationFrame(tick);
