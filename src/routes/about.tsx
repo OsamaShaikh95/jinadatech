@@ -6,10 +6,10 @@ import { Heart, Lightbulb, Target, Users, ArrowRight } from "lucide-react";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — A family-founded technology studio | 4NodeTech" },
-      { name: "description", content: "4NodeTech is a family-founded software and AI agency focused on innovation, automation and durable growth for modern businesses." },
-      { property: "og:title", content: "About 4NodeTech" },
-      { property: "og:description", content: "A family-founded technology studio building digital products, AI and growth engines." },
+      { title: "About — Your modern technology partner | Jinada Tech" },
+      { name: "description", content: "Jinada Tech is a technology partner helping startups and local businesses grow online through modern digital solutions." },
+      { property: "og:title", content: "About Jinada Tech" },
+      { property: "og:description", content: "Helping startups and local businesses grow online through modern digital solutions." },
       { property: "og:url", content: "/about" },
     ],
     links: [{ rel: "canonical", href: "/about" }],
@@ -31,8 +31,8 @@ function About() {
         <SectionHeader
           as="h1"
           eyebrow="Our story"
-          title={<>A <span className="text-gradient-brand">family‑founded</span> technology studio</>}
-          description="Built by engineers and designers who believe great software comes from small, senior, deeply aligned teams."
+          title={<>Your modern <span className="text-gradient-brand">technology partner</span></>}
+          description="Jinada Tech is a technology partner helping startups and local businesses grow online through modern digital solutions."
         />
 
         <div className="grid md:grid-cols-2 gap-6">
@@ -47,9 +47,9 @@ function About() {
           <div className="glass rounded-2xl p-8">
             <h3 className="text-xl font-semibold">Our vision</h3>
             <p className="mt-3 text-muted-foreground text-sm leading-relaxed">
-              A future where every business — from a single‑founder startup to a global brand — has the
-              automation, intelligence and digital presence of a top‑tier tech company. We're here to help
-              build that future, one product at a time.
+              A future where every business — from a single‑founder startup to a local shop to a global brand —
+              has the automation, intelligence and digital presence of a top‑tier tech company. We're here to
+              help build that future, one product at a time.
             </p>
           </div>
         </div>
@@ -57,7 +57,7 @@ function About() {
         <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {values.map((v) => (
             <div key={v.title} className="glass rounded-2xl p-6">
-              <v.icon size={22} className="text-[var(--neon-magenta)]" />
+              <v.icon size={22} className="text-[var(--brand-blue-soft)]" />
               <h4 className="mt-4 font-semibold">{v.title}</h4>
               <p className="mt-2 text-sm text-muted-foreground">{v.desc}</p>
             </div>
@@ -65,14 +65,14 @@ function About() {
         </div>
 
         <div className="mt-16 relative overflow-hidden glass-strong rounded-3xl p-10 sm:p-14">
-          <div className="absolute -top-20 right-0 w-80 h-80 rounded-full bg-[var(--neon-magenta)]/20 blur-3xl" />
+          <div className="absolute -top-20 right-0 w-80 h-80 rounded-full bg-[var(--brand-blue)]/25 blur-3xl" />
           <div className="relative grid md:grid-cols-2 gap-10 items-center">
             <div>
               <h3 className="text-2xl sm:text-3xl font-semibold">
-                Innovation. <span className="text-gradient-brand">Automation.</span> Growth.
+                Build. <span className="text-gradient-brand">Automate.</span> Scale.
               </h3>
               <p className="mt-4 text-muted-foreground text-sm leading-relaxed">
-                Three pillars guide every project: we innovate with new technology, automate the boring
+                Three pillars guide every project: we build with modern technology, automate the boring
                 away, and architect for compounding growth.
               </p>
               <Link to="/contact" className="mt-6 btn-primary-glow hover:[&]:btn-primary-glow-hover inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium">
@@ -81,10 +81,10 @@ function About() {
             </div>
             <ul className="space-y-3">
               {[
-                "Founded by a family of engineers, designers and operators",
-                "Distributed team across 4 time zones",
-                "Serving startups, D2C brands and enterprise clients",
-                "Trusted on 80+ shipped products since inception",
+                "Senior team of engineers, designers and growth operators",
+                "Serving startups, local businesses and D2C brands",
+                "End-to-end: strategy, product, engineering and growth",
+                "Trusted on 80+ shipped products to date",
               ].map((p) => (
                 <li key={p} className="glass rounded-xl p-4 text-sm">{p}</li>
               ))}

@@ -8,9 +8,9 @@ import { toast } from "sonner";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Let's build something together | 4NodeTech" },
-      { name: "description", content: "Get in touch with 4NodeTech. Tell us about your project and we'll respond within one business day." },
-      { property: "og:title", content: "Contact | 4NodeTech" },
+      { title: "Contact — Let's build something together | Jinada Tech" },
+      { name: "description", content: "Get in touch with Jinada Tech. Tell us about your project and we'll respond within one business day." },
+      { property: "og:title", content: "Contact | Jinada Tech" },
       { property: "og:description", content: "Book a free strategy call or send us a project brief." },
       { property: "og:url", content: "/contact" },
     ],
@@ -88,7 +88,7 @@ function Contact() {
             <input
               type="hidden"
               name="_subject"
-              value="New Lead from 4NodeTech Website"
+              value="New Lead from Jinada Tech Website"
             />
             <div className="grid sm:grid-cols-2 gap-4">
               <Field label="Name" name="name" placeholder="Jane Doe" />
@@ -100,11 +100,11 @@ function Contact() {
               <select
                 id={serviceId}
                 name="service"
-                className="mt-2 w-full glass rounded-xl px-4 py-3 text-sm bg-transparent outline-none focus:border-[var(--neon-cyan)]/60"
+                className="mt-2 w-full glass rounded-xl px-4 py-3 text-sm bg-transparent outline-none focus:border-[var(--brand-blue)]/60"
                 defaultValue=""
               >
                 <option value="" disabled className="bg-card">Select a service…</option>
-                {["Web Development","Mobile App","AI Solutions","Shopify","SEO & Marketing","Branding","Cloud & DevOps","Not sure yet"].map(s => (
+                {["Web Development","Mobile App Development","AI Automation","SEO & Marketing","Social Media Management","Business Growth Consulting","Not sure yet"].map(s => (
                   <option key={s} value={s} className="bg-card">{s}</option>
                 ))}
               </select>
@@ -137,9 +137,9 @@ function Contact() {
                   </a>
                 </li>
                 <li>
-                  <a href="https://4nodetech.com" className="flex items-center gap-3 hover:text-[var(--neon-cyan)]">
+                  <a href="https://jinadatech.com" className="flex items-center gap-3 hover:text-[var(--brand-blue)]">
                     <span className="w-9 h-9 rounded-xl glass-strong inline-flex items-center justify-center"><Globe size={16} /></span>
-                    4nodetech.com
+                    jinadatech.com
                   </a>
                 </li>
               </ul>

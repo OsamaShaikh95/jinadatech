@@ -6,10 +6,10 @@ import { ArrowUpRight } from "lucide-react";
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
     meta: [
-      { title: "Portfolio — Selected work & case studies | 4NodeTech" },
-      { name: "description", content: "A selection of products, platforms and AI systems we've shipped for startups, brands and enterprises." },
-      { property: "og:title", content: "Portfolio | 4NodeTech" },
-      { property: "og:description", content: "Case studies and selected work from the 4NodeTech team." },
+      { title: "Portfolio — Selected work & case studies | Jinada Tech" },
+      { name: "description", content: "A selection of products, platforms and AI systems Jinada Tech has shipped for startups, brands and enterprises." },
+      { property: "og:title", content: "Portfolio | Jinada Tech" },
+      { property: "og:description", content: "Case studies and selected work from the Jinada Tech team." },
       { property: "og:url", content: "/portfolio" },
     ],
     links: [{ rel: "canonical", href: "/portfolio" }],
