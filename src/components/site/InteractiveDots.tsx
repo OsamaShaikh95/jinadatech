@@ -16,9 +16,9 @@ export function InteractiveDots({ className = "" }: { className?: string }) {
 
     type Dot = { x: number; y: number; ox: number; oy: number; vx: number; vy: number };
     let dots: Dot[] = [];
-    const spacing = 26;
-    const radius = 130;
-    const force = 38;
+    const spacing = 14;
+    const radius = 110;
+    const force = 30;
 
     const mouse = { x: -9999, y: -9999, active: false };
 
