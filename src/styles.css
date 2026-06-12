@@ -233,3 +233,14 @@
     cursor: none !important;
   }
 }
+
+/* Use default arrow cursor over text instead of the I-beam */
+body, p, h1, h2, h3, h4, h5, h6, span, div, li, a {
+  cursor: default;
+}
+a, button, [role="button"], label, summary {
+  cursor: pointer;
+}
+input, textarea, [contenteditable="true"] {
+  cursor: text;
+}
