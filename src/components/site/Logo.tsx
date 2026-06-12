@@ -14,7 +14,7 @@ export function Logo({ className = "" }: { className?: string }) {
         />
       </div>
       <span className="font-display text-lg font-semibold tracking-tight">
-        Jinada<span className="text-gradient-brand"> Tech</span>
+        Jinada<span className="text-gradient-brand">Tech</span>
       </span>
     </Link>
   );
