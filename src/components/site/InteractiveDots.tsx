@@ -3,9 +3,9 @@ import { useEffect, useRef } from "react";
 export function InteractiveDots({
   className = "",
   src = "/jinada-mark.png",
-  size = 560,
-  step = 5,
-  threshold = 60,
+  size = 480,
+  step = 9,
+  threshold = 80,
 }: {
   className?: string;
   src?: string;
