@@ -124,17 +124,43 @@ export function InteractiveDots({
     window.addEventListener("mouseleave", onLeave);
 
     let raf = 0;
+    let visible = true;
+    const io = new IntersectionObserver(
+      (entries) => {
+        visible = entries[0]?.isIntersecting ?? true;
+      },
+      { threshold: 0 }
+    );
+    io.observe(canvas);
+
     const tick = () => {
+      raf = requestAnimationFrame(tick);
+      if (!visible) return;
+
       ctx.clearRect(0, 0, width, height);
-      for (const d of dots) {
-        const dx = d.x - mouse.x;
-        const dy = d.y - mouse.y;
-        const dist = Math.hypot(dx, dy);
-        if (mouse.active && dist < radius) {
-          const f = (1 - dist / radius) * force;
-          const ang = Math.atan2(dy, dx);
-          d.vx += Math.cos(ang) * f * 0.08;
-          d.vy += Math.sin(ang) * f * 0.08;
+
+      // Batch all "far" dots into a single path for one fill call
+      ctx.fillStyle = "rgba(91, 155, 255, 0.55)";
+      ctx.beginPath();
+      const nearDots: { d: Dot; t: number }[] = [];
+
+      for (let i = 0; i < dots.length; i++) {
+        const d = dots[i];
+        let near = false;
+        let t = 0;
+        if (mouse.active) {
+          const dx = d.x - mouse.x;
+          const dy = d.y - mouse.y;
+          const distSq = dx * dx + dy * dy;
+          if (distSq < radius * radius) {
+            const dist = Math.sqrt(distSq) || 0.0001;
+            t = 1 - dist / radius;
+            const f = t * force * 0.08;
+            const inv = 1 / dist;
+            d.vx += dx * inv * f;
+            d.vy += dy * inv * f;
+            near = true;
+          }
         }
         d.vx += (d.ox - d.x) * 0.06;
         d.vy += (d.oy - d.y) * 0.06;
@@ -143,15 +169,21 @@ export function InteractiveDots({
         d.x += d.vx;
         d.y += d.vy;
 
-        const near = mouse.active && dist < radius;
+        if (near) {
+          nearDots.push({ d, t });
+        } else {
+          ctx.moveTo(d.x + 0.95, d.y);
+          ctx.arc(d.x, d.y, 0.95, 0, Math.PI * 2);
+        }
+      }
+      ctx.fill();
+
+      for (const { d, t } of nearDots) {
         ctx.beginPath();
-        ctx.arc(d.x, d.y, near ? 1.4 : 0.95, 0, Math.PI * 2);
-        ctx.fillStyle = near
-          ? `rgba(120, 200, 255, ${0.65 + (1 - dist / radius) * 0.35})`
-          : "rgba(91, 155, 255, 0.55)";
+        ctx.arc(d.x, d.y, 1.4, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(120, 200, 255, ${0.65 + t * 0.35})`;
         ctx.fill();
       }
-      raf = requestAnimationFrame(tick);
     };
     tick();
 
