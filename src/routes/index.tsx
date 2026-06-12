@@ -167,8 +167,8 @@ function Home() {
               <Link to="/contact" className="btn-primary-glow hover:[&]:btn-primary-glow-hover inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium">
                 Start a Project <ArrowRight size={16} />
               </Link>
-              <a href="mailto:info@4nodetech.com" className="glass inline-flex items-center px-6 py-3 rounded-xl font-medium hover:bg-white/5 transition">
-                info@4nodetech.com
+              <a href="mailto:info@jinadatech.com" className="glass inline-flex items-center px-6 py-3 rounded-xl font-medium hover:bg-white/5 transition">
+                info@jinadatech.com
               </a>
             </div>
           </div>

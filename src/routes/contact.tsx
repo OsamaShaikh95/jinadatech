@@ -131,9 +131,9 @@ function Contact() {
               <h3 className="font-semibold">Reach us directly</h3>
               <ul className="mt-4 space-y-3 text-sm">
                 <li>
-                  <a href="mailto:info@4nodetech.com" className="flex items-center gap-3 hover:text-[var(--neon-cyan)]">
+                  <a href="mailto:info@jinadatech.com" className="flex items-center gap-3 hover:text-[var(--neon-cyan)]">
                     <span className="w-9 h-9 rounded-xl glass-strong inline-flex items-center justify-center"><Mail size={16} /></span>
-                    info@4nodetech.com
+                    info@jinadatech.com
                   </a>
                 </li>
                 <li>
@@ -151,7 +151,7 @@ function Contact() {
               <p className="relative mt-2 text-sm text-muted-foreground">
                 Book a free 30‑minute strategy session. We'll map the fastest path from idea to launch.
               </p>
-              <a href="mailto:info@4nodetech.com?subject=Strategy%20call" className="relative mt-4 inline-flex items-center gap-2 text-sm text-foreground hover:text-[var(--neon-cyan)]">
+              <a href="mailto:info@jinadatech.com?subject=Strategy%20call" className="relative mt-4 inline-flex items-center gap-2 text-sm text-foreground hover:text-[var(--neon-cyan)]">
                 Schedule a call <ArrowRight size={14} />
               </a>
             </div>

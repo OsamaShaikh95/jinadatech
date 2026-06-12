@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://fournodetech.lovable.app/sitemap.xml
+Sitemap: https://jinadatech.com/sitemap.xml
