@@ -67,7 +67,7 @@ function Home() {
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3 animate-fade-up">
             <Link to="/contact" className="btn-primary-glow hover:[&]:btn-primary-glow-hover inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium">
-              Book a Free Consultation <ArrowRight size={16} />
+              Start a Project <ArrowRight size={16} />
             </Link>
             <Link to="/services" className="glass-strong inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium hover:bg-white/10 transition">
               Explore Services
