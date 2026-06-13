@@ -1,19 +1,13 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, redirect } from "@tanstack/react-router";
 import { Layout } from "@/components/site/Layout";
 import { Section, SectionHeader } from "@/components/site/Section";
 import { ArrowUpRight } from "lucide-react";
 
 export const Route = createFileRoute("/portfolio")({
-  head: () => ({
-    meta: [
-      { title: "Portfolio — Selected work & case studies | Jinada Tech" },
-      { name: "description", content: "A selection of products, platforms and AI systems Jinada Tech has shipped for startups, brands and enterprises." },
-      { property: "og:title", content: "Portfolio | Jinada Tech" },
-      { property: "og:description", content: "Case studies and selected work from the Jinada Tech team." },
-      { property: "og:url", content: "/portfolio" },
-    ],
-    links: [{ rel: "canonical", href: "/portfolio" }],
-  }),
+  // Portfolio is hidden for now — redirect visitors to the home page.
+  beforeLoad: () => {
+    throw redirect({ to: "/" });
+  },
   component: Portfolio,
 });
 
