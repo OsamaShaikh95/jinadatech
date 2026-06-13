@@ -164,7 +164,7 @@ export function ChatWidget() {
 
       {open && (
         <div
-          className="fixed bottom-24 right-4 sm:right-6 z-[60] w-[calc(100vw-2rem)] sm:w-[380px] max-h-[70vh] flex flex-col glass-strong rounded-2xl overflow-hidden border border-white/10 animate-fade-up"
+          className="fixed bottom-24 right-4 sm:right-6 z-[60] w-[calc(100vw-2rem)] sm:w-[380px] max-h-[70vh] flex flex-col bg-card rounded-2xl overflow-hidden border border-white/10 shadow-2xl animate-fade-up"
           role="dialog"
           aria-label="Chat with Jinada Tech"
         >
