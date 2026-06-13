@@ -54,7 +54,7 @@ function Home() {
         <div className="absolute top-60 left-10 w-[400px] h-[400px] rounded-full bg-[var(--brand-blue)]/15 blur-[120px]" />
 
         <div className="relative mx-auto max-w-6xl px-4 pt-20 pb-32 sm:pt-28 sm:pb-40 text-center">
-          <div className="inline-flex items-center gap-2 glass rounded-full px-3 py-1 text-xs text-muted-foreground animate-fade-up">
+          <div className="inline-flex items-center gap-2 glass rounded-full px-3 py-1 text-xs text-foreground animate-fade-up">
             <span className="h-1.5 w-1.5 rounded-full bg-[var(--brand-blue)] animate-pulse-glow" />
             Websites • Apps • AI Automation
           </div>
@@ -62,7 +62,7 @@ function Home() {
             <span className="text-gradient-brand animate-gradient">Technology</span> That Helps<br className="hidden sm:block" />
             Your Business Work Smarter
           </h1>
-          <p className="mt-6 max-w-2xl mx-auto text-base sm:text-lg text-muted-foreground animate-fade-up">
+          <p className="mt-6 max-w-2xl mx-auto text-base sm:text-lg text-foreground animate-fade-up">
             We partner with startups and businesses to create fast, modern software that delivers real business results.
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3 animate-fade-up">
