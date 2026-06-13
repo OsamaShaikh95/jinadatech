@@ -30,7 +30,7 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-white/5 py-6 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} Jinada Tech. Build. Automate. Scale.
+        © {new Date().getFullYear()} Jinada Tech. Websites • Apps • AI Automation
       </div>
     </footer>
   );

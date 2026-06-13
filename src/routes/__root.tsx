@@ -78,10 +78,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Jinada Tech — Build. Automate. Scale." },
+      { title: "Jinada Tech — Websites • Apps • AI Automation" },
       { name: "description", content: "Jinada Tech builds digital products, AI solutions and growth systems for modern businesses. Web, mobile, AI, SEO and marketing." },
       { name: "author", content: "Jinada Tech" },
-      { property: "og:title", content: "Jinada Tech — Build. Automate. Scale." },
+      { property: "og:title", content: "Jinada Tech — Websites • Apps • AI Automation" },
       { property: "og:description", content: "Building digital products, AI solutions, and growth systems for modern businesses." },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Jinada Tech" },
