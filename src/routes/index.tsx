@@ -56,26 +56,28 @@ function Home() {
         <div className="relative mx-auto max-w-6xl px-4 pt-20 pb-32 sm:pt-28 sm:pb-40 text-center">
           <div className="inline-flex items-center gap-2 glass rounded-full px-3 py-1 text-xs text-muted-foreground animate-fade-up">
             <span className="h-1.5 w-1.5 rounded-full bg-[var(--brand-blue)] animate-pulse-glow" />
-            Build. Automate. Scale.
+            Websites • Apps • AI Automation
           </div>
-          <h1 className="mt-6 text-4xl sm:text-6xl md:text-7xl font-semibold tracking-tight leading-[1.05] animate-fade-up">
-            Building <span className="text-gradient-brand animate-gradient">Digital Products,</span><br className="hidden sm:block" />
-            AI Solutions, and Growth Systems<br className="hidden sm:block" />
-            for Modern Businesses.
+          <h1
+            style={{ fontFamily: '"Talina", "Space Grotesk", system-ui, sans-serif' }}
+            className="mt-6 text-4xl sm:text-6xl md:text-7xl font-semibold tracking-tight leading-[1.05] animate-fade-up"
+          >
+            <span className="text-gradient-brand animate-gradient">Technology</span> That Helps<br className="hidden sm:block" />
+            Your Business Work Smarter
           </h1>
           <p className="mt-6 max-w-2xl mx-auto text-base sm:text-lg text-muted-foreground animate-fade-up">
-            We help businesses launch, automate, and scale through websites, mobile apps, AI, SEO, and digital marketing.
+            We partner with startups and businesses to create fast, modern software that delivers real business results.
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3 animate-fade-up">
             <Link to="/contact" className="btn-primary-glow hover:[&]:btn-primary-glow-hover inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium">
-              Start a Project <ArrowRight size={16} />
+              Book a Free Consultation <ArrowRight size={16} />
             </Link>
             <Link to="/services" className="glass-strong inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium hover:bg-white/10 transition">
               Explore Services
             </Link>
           </div>
 
-          <div className="mt-20 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-xs uppercase tracking-widest text-muted-foreground/70">
+          <div className="mt-20 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-xs uppercase tracking-widest font-semibold text-muted-foreground">
             <span>Trusted by ambitious teams</span><span>·</span><span>Startups</span>
             <span>·</span><span>Local businesses</span><span>·</span><span>D2C brands</span><span>·</span><span>Enterprise</span>
           </div>
