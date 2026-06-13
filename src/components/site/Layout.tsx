@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import { BackToTop } from "./BackToTop";
+import { ChatWidget } from "./ChatWidget";
 
 export function Layout({ children }: { children: ReactNode }) {
   return (
@@ -10,6 +11,7 @@ export function Layout({ children }: { children: ReactNode }) {
       <main className="flex-1 pt-28">{children}</main>
       <Footer />
       <BackToTop />
+      <ChatWidget />
     </div>
   );
 }
