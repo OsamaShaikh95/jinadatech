@@ -30,10 +30,17 @@ const services = [
 ];
 
 const reasons = [
-  { icon: Zap, title: "Velocity", desc: "Ship in weeks, not quarters. Senior engineers, no handoffs." },
-  { icon: Brain, title: "AI-native", desc: "Automation and AI baked into every product we deliver." },
-  { icon: ShieldCheck, title: "Production-grade", desc: "Secure, observable, and built to scale from day one." },
-  { icon: Rocket, title: "Growth-focused", desc: "We measure outcomes — revenue, retention, conversions." },
+  { icon: Zap, title: "Fast Delivery", desc: "Projects delivered efficiently with clear communication." },
+  { icon: Brain, title: "AI-Powered Solutions", desc: "Automation and AI integrated where it matters." },
+  { icon: ShieldCheck, title: "Growth Focused", desc: "Built to generate leads, sales, and business growth." },
+  { icon: Rocket, title: "Direct Partnership", desc: "Work directly with experienced developers and marketers." },
+];
+
+const advantages = [
+  ["100% Custom Solutions", "Built around your business goals"],
+  ["Transparent Pricing", "No hidden costs or surprises"],
+  ["Direct Founder Access", "Speak directly with the people building your project"],
+  ["Long-Term Partnership", "Support beyond launch"],
 ];
 
 const testimonials = [
@@ -123,11 +130,11 @@ function Home() {
           ))}
         </div>
 
-        <div className="mt-10 glass-strong rounded-3xl p-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          {[["80+","Products shipped"],["6 wks","Avg. time to launch"],["3.4x","Average ROI delivered"],["24/7","Support & monitoring"]].map(([n, l]) => (
-            <div key={l}>
-              <div className="text-3xl sm:text-4xl font-semibold text-gradient-brand">{n}</div>
-              <div className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">{l}</div>
+        <div className="mt-10 glass-strong rounded-3xl p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          {advantages.map(([title, text]) => (
+            <div key={title}>
+              <div className="text-lg sm:text-xl font-semibold text-gradient-brand">{title}</div>
+              <div className="mt-2 text-sm text-muted-foreground">{text}</div>
             </div>
           ))}
         </div>
