@@ -75,6 +75,7 @@ export function Nav() {
               {open ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
+          </div>
         </div>
         {open && (
           <div className="md:hidden glass mt-2 rounded-2xl p-4 animate-fade-up">
