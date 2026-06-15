@@ -157,7 +157,7 @@ function Contact() {
             </div>
 
             <div className="glass rounded-2xl p-6 text-sm text-muted-foreground">
-              <strong className="text-foreground">Typical response time:</strong> Under 24 hours, Mon–Fri.
+              <strong className="text-foreground">Typical response time:</strong> Within 1 business day
             </div>
           </aside>
         </div>
