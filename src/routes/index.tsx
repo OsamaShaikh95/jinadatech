@@ -141,22 +141,20 @@ function Home() {
       </Section>
 
       <Section>
-        <SectionHeader eyebrow="Testimonials" title={<>Loved by <span className="text-gradient-brand">founders</span> and operators</>} />
+        <SectionHeader eyebrow="What you get" title={<>Outcomes that <span className="text-gradient-brand">move the needle</span></>} />
         <div className="grid md:grid-cols-3 gap-4">
-          {testimonials.map((t) => (
-            <div key={t.name} className="glass rounded-2xl p-6 flex flex-col">
-              <div className="flex gap-0.5 text-[var(--brand-blue)]">
-                {Array.from({ length: 5 }).map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
+          {benefits.map((b) => (
+            <div key={b.title} className="glass rounded-2xl p-6 flex flex-col">
+              <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl glass-strong text-[var(--brand-blue)]">
+                <b.icon size={20} />
               </div>
-              <p className="mt-4 text-sm text-foreground/90 flex-1">"{t.quote}"</p>
-              <div className="mt-6">
-                <div className="text-sm font-semibold">{t.name}</div>
-                <div className="text-xs text-muted-foreground">{t.role}</div>
-              </div>
+              <h3 className="mt-4 text-lg font-semibold">{b.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground flex-1">{b.desc}</p>
             </div>
           ))}
         </div>
       </Section>
+
 
       <Section>
         <div className="relative overflow-hidden rounded-3xl glass-strong p-10 sm:p-16 text-center">
