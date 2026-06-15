@@ -149,7 +149,7 @@ function Contact() {
               <div className="absolute -top-12 -right-10 w-48 h-48 rounded-full bg-[var(--neon-magenta)]/30 blur-3xl" />
               <h3 className="relative font-semibold">Prefer a call?</h3>
               <p className="relative mt-2 text-sm text-muted-foreground">
-                Book a free 30‑minute strategy session. We'll map the fastest path from idea to launch.
+                Schedule a free consultation to discuss your goals and explore the best solution for your business.
               </p>
               <a href="mailto:info@jinadatech.com?subject=Strategy%20call" className="relative mt-4 inline-flex items-center gap-2 text-sm text-foreground hover:text-[var(--neon-cyan)]">
                 Schedule a call <ArrowRight size={14} />
