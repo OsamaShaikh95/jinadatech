@@ -43,10 +43,10 @@ const advantages = [
   ["Long-Term Partnership", "Support beyond launch"],
 ];
 
-const testimonials = [
-  { quote: "Jinada Tech rebuilt our platform and launched our AI agent in 6 weeks. Conversions doubled.", name: "Priya Shah", role: "Founder, Lumen Health" },
-  { quote: "They feel like an in-house team. Strategy, design, engineering — all under one roof.", name: "Marcus Lee", role: "CTO, Northwind" },
-  { quote: "Best partner we've worked with. Their automation work alone saved us 30 hours a week.", name: "Elena Garcia", role: "COO, Vela Studio" },
+const benefits = [
+  { icon: Rocket, title: "Websites That Convert", desc: "Modern, fast, and SEO-friendly websites designed to turn visitors into customers." },
+  { icon: Zap, title: "Automation That Saves Time", desc: "Reduce manual work with AI-powered workflows and business automation." },
+  { icon: Search, title: "Growth That Scales", desc: "Marketing and digital strategies focused on generating leads and revenue." },
 ];
 
 function Home() {
