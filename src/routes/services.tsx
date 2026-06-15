@@ -1,13 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Layout } from "@/components/site/Layout";
 import { Section, SectionHeader } from "@/components/site/Section";
-import { Code2, Smartphone, Brain, Search, Share2, TrendingUp, ArrowRight, Check } from "lucide-react";
+import { Code2, Smartphone, Brain, Search, Handshake, ArrowRight, Check } from "lucide-react";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
       { title: "Services — Web, Mobile, AI & Growth | Jinada Tech" },
-      { name: "description", content: "Web and mobile development, AI automation, SEO, social media and business growth consulting for modern businesses." },
+      { name: "description", content: "Website and app development, SEO and marketing, AI automation, and complete digital partnership for modern businesses." },
       { property: "og:title", content: "Services | Jinada Tech" },
       { property: "og:description", content: "End-to-end product, AI and growth services from a senior team." },
       { property: "og:url", content: "/services" },
@@ -18,12 +18,11 @@ export const Route = createFileRoute("/services")({
 });
 
 const services = [
-  { icon: Code2, title: "Web Development", desc: "High-performance marketing sites, dashboards and SaaS platforms on modern, edge-native stacks.", points: ["Marketing sites & landing pages", "SaaS dashboards", "Headless CMS", "Core Web Vitals"] },
-  { icon: Smartphone, title: "Mobile App Development", desc: "Cross-platform and native mobile apps with delightful UX and rock-solid release pipelines.", points: ["iOS & Android", "React Native / Expo", "Offline-first", "App Store launch"] },
-  { icon: Brain, title: "AI Automation", desc: "LLM agents, RAG systems, workflow automation and internal copilots tuned to your business.", points: ["Custom GPT agents", "RAG & vector search", "n8n / Zapier", "AI copilots"] },
-  { icon: Search, title: "SEO & Marketing", desc: "Technical SEO, programmatic content and growth experiments that compound month over month.", points: ["Technical audits", "Programmatic SEO", "Content & links", "Paid acquisition"] },
-  { icon: Share2, title: "Social Media Management", desc: "On-brand content, scheduling, community and growth across every channel.", points: ["Content calendars", "Creative production", "Community management", "Analytics & reporting"] },
-  { icon: TrendingUp, title: "Business Growth Consulting", desc: "Strategy, systems and tooling to scale operations, revenue and team output sustainably.", points: ["Go-to-market strategy", "Process automation", "Tooling & stack", "KPIs & reporting"] },
+  { icon: Code2, title: "Website Development", subtitle: "Website Build & Launch", desc: "We design custom websites to attract customers, showcase your brand and convert visitors into leads.", points: ["Marketing sites & landing pages", "Custom design systems", "Headless CMS", "Core Web Vitals & SEO-ready"] },
+  { icon: Smartphone, title: "App Development", subtitle: "App Development & Growth", desc: "End-to-end mobile app development, deployment, and growth strategies that help businesses scale.", points: ["iOS & Android", "React Native / Expo", "App Store launch", "Post-launch growth"] },
+  { icon: Search, title: "SEO & Marketing", subtitle: "Traffic & Digital Growth", desc: "SEO, content marketing, and social media strategies designed to increase visibility, traffic, and conversions.", points: ["Technical SEO audits", "Content & link building", "Social media management", "Paid acquisition"] },
+  { icon: Brain, title: "AI & Automation", subtitle: "AI & Business Automation", desc: "Automate repetitive tasks, streamline operations, and boost productivity with custom AI-powered workflows.", points: ["Custom AI agents", "RAG & vector search", "Workflow automation", "Internal copilots"] },
+  { icon: Handshake, title: "Complete Partnership", subtitle: "Your All-In-One Digital Partner", desc: "From websites and apps to marketing, SEO, and automation—we handle your digital growth so you can focus on your business.", points: ["Dedicated senior team", "Strategy & roadmap", "Ongoing iteration", "24/7 support"] },
 ];
 
 function Services() {
@@ -45,6 +44,7 @@ function Services() {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold">{s.title}</h3>
+                  <p className="mt-1 text-xs uppercase tracking-widest text-[var(--brand-blue)]">{s.subtitle}</p>
                   <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
                   <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {s.points.map((p) => (
