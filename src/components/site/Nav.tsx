@@ -24,7 +24,7 @@ export function Nav() {
   return (
     <header className="fixed top-0 inset-x-0 z-50">
       <div className="mx-auto max-w-6xl px-4 pt-4">
-        <div className={`${scrolled ? "glass-strong bg-background/95 shadow-lg" : "glass"} rounded-2xl px-4 sm:px-6 py-3 flex items-center justify-between transition-all duration-300`}>
+        <div className={`${scrolled ? "bg-background border border-border shadow-lg" : "glass"} rounded-2xl px-4 sm:px-6 py-3 flex items-center justify-between transition-all duration-300`}>
           <Logo />
           <nav className="hidden md:flex items-center gap-1">
             {links.map((l) => (
