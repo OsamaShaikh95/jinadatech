@@ -8,7 +8,7 @@ export function Layout({ children }: { children: ReactNode }) {
   return (
     <div className="min-h-screen flex flex-col">
       <Nav />
-      <main className="flex-1 pt-28">{children}</main>
+      <main className="flex-1 pt-36 md:pt-40">{children}</main>
       <Footer />
       <BackToTop />
       {/* <ChatWidget /> hidden for now */}
