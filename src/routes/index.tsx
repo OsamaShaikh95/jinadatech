@@ -130,11 +130,11 @@ function Home() {
           ))}
         </div>
 
-        <div className="mt-10 glass-strong rounded-3xl p-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          {[["80+","Products shipped"],["6 wks","Avg. time to launch"],["3.4x","Average ROI delivered"],["24/7","Support & monitoring"]].map(([n, l]) => (
-            <div key={l}>
-              <div className="text-3xl sm:text-4xl font-semibold text-gradient-brand">{n}</div>
-              <div className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">{l}</div>
+        <div className="mt-10 glass-strong rounded-3xl p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          {advantages.map(([title, text]) => (
+            <div key={title}>
+              <div className="text-lg sm:text-xl font-semibold text-gradient-brand">{title}</div>
+              <div className="mt-2 text-sm text-muted-foreground">{text}</div>
             </div>
           ))}
         </div>
