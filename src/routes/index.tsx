@@ -3,7 +3,7 @@ import { Layout } from "@/components/site/Layout";
 import { Section, SectionHeader } from "@/components/site/Section";
 import {
   ArrowRight, Code2, Smartphone, Brain, Search, Handshake,
-  Zap, ShieldCheck, Rocket, Star,
+  Zap, ShieldCheck, Rocket,
 } from "lucide-react";
 import { InteractiveDots } from "@/components/site/InteractiveDots";
 
