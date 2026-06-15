@@ -44,6 +44,7 @@ function Services() {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold">{s.title}</h3>
+                  <p className="mt-1 text-xs uppercase tracking-widest text-[var(--brand-blue)]">{s.subtitle}</p>
                   <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
                   <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {s.points.map((p) => (
