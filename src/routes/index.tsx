@@ -118,7 +118,7 @@ function Home() {
       <Section>
         <SectionHeader
           eyebrow="Why Jinada Tech"
-          title={<>Built like a <span className="text-gradient-brand">product team,</span> priced like a partner</>}
+          title={<>Technology, Marketing & <span className="text-gradient-brand">Growth Under One Roof</span></>}
         />
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {reasons.map((r) => (
