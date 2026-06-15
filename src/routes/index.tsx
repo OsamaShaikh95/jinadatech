@@ -22,12 +22,11 @@ export const Route = createFileRoute("/")({
 });
 
 const services = [
-  { icon: Code2, title: "Web Development", desc: "Premium, blazing-fast websites and web apps built on modern stacks." },
-  { icon: Smartphone, title: "Mobile App Development", desc: "Native-feeling iOS and Android products that scale with your business." },
-  { icon: Brain, title: "AI Automation", desc: "LLM agents, internal copilots and workflows that remove busywork." },
-  { icon: Search, title: "SEO & Marketing", desc: "Technical SEO and content systems that compound month over month." },
-  { icon: Share2, title: "Social Media Management", desc: "On-brand content, scheduling and growth across every channel." },
-  { icon: TrendingUp, title: "Business Growth Consulting", desc: "Strategy, systems and tooling to scale operations sustainably." },
+  { icon: Code2, title: "Website Development", subtitle: "Website Build & Launch", desc: "We design custom websites to attract customers, showcase your brand and convert visitors into leads." },
+  { icon: Smartphone, title: "App Development", subtitle: "App Development & Growth", desc: "End-to-end mobile app development, deployment, and growth strategies that help businesses scale." },
+  { icon: Search, title: "SEO & Marketing", subtitle: "Traffic & Digital Growth", desc: "SEO, content marketing, and social media strategies designed to increase visibility, traffic, and conversions." },
+  { icon: Brain, title: "AI & Automation", subtitle: "AI & Business Automation", desc: "Automate repetitive tasks, streamline operations, and boost productivity with custom AI-powered workflows." },
+  { icon: Handshake, title: "Complete Partnership", subtitle: "Your All-In-One Digital Partner", desc: "From websites and apps to marketing, SEO, and automation—we handle your digital growth so you can focus on your business." },
 ];
 
 const reasons = [
