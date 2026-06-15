@@ -49,7 +49,7 @@ function Home() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-grid pointer-events-none opacity-40" />
         <InteractiveDots size={1000} step={4} />
-        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full bg-[var(--brand-blue)]/25 blur-[140px] animate-pulse-glow" />
+        <div className="absolute -top-96 left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full bg-[var(--brand-blue)]/10 blur-[160px] animate-pulse-glow" />
         <div className="absolute top-40 right-10 w-[400px] h-[400px] rounded-full bg-[var(--brand-blue-soft)]/15 blur-[120px]" />
         <div className="absolute top-60 left-10 w-[400px] h-[400px] rounded-full bg-[var(--brand-blue)]/15 blur-[120px]" />
 
