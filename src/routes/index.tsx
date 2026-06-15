@@ -65,8 +65,8 @@ function Home() {
             Websites • Apps • AI Automation
           </div>
           <h1 className="mt-6 text-4xl sm:text-6xl md:text-7xl font-semibold tracking-tight leading-[1.05] animate-fade-up">
-            <span className="text-gradient-brand animate-gradient">Technology,</span> Marketing<br className="hidden sm:block" />
-            & Growth Under One Roof
+            <span className="text-gradient-brand animate-gradient">Technology</span> That Helps<br className="hidden sm:block" />
+            Your Business Work Smarter
           </h1>
           <p className="mt-6 max-w-2xl mx-auto text-base sm:text-lg text-foreground animate-fade-up">
             We partner with startups and businesses to create fast, modern software that delivers real business results.
@@ -118,7 +118,7 @@ function Home() {
       <Section>
         <SectionHeader
           eyebrow="Why Jinada Tech"
-          title={<>Built like a <span className="text-gradient-brand">product team,</span> priced like a partner</>}
+          title={<>Technology, Marketing & <span className="text-gradient-brand">Growth Under One Roof</span></>}
         />
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {reasons.map((r) => (
