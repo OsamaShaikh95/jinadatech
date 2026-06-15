@@ -14,10 +14,17 @@ const links = [
 
 export function Nav() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
   return (
     <header className="fixed top-0 inset-x-0 z-50">
       <div className="mx-auto max-w-6xl px-4 pt-4">
-        <div className="glass rounded-2xl px-4 sm:px-6 py-3 flex items-center justify-between">
+        <div className={`${scrolled ? "glass-strong bg-background/95 shadow-lg" : "glass"} rounded-2xl px-4 sm:px-6 py-3 flex items-center justify-between transition-all duration-300`}>
           <Logo />
           <nav className="hidden md:flex items-center gap-1">
             {links.map((l) => (
