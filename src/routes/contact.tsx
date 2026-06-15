@@ -91,10 +91,10 @@ function Contact() {
               value="New Lead from Jinada Tech Website"
             />
             <div className="grid sm:grid-cols-2 gap-4">
-              <Field label="Name" name="name" placeholder="Jane Doe" />
-              <Field label="Email" name="email" type="email" placeholder="you@company.com" />
+              <Field label="Name" name="name" placeholder="Your Name" />
+              <Field label="Email" name="email" type="email" placeholder="Your Email" />
             </div>
-            <Field label="Company" name="company" placeholder="Acme Inc." required={false} />
+            <Field label="Company" name="company" placeholder="Your Business" required={false} />
             <div>
               <label htmlFor={serviceId} className="text-xs font-medium uppercase tracking-widest text-muted-foreground">Service</label>
               <select
