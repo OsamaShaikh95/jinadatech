@@ -30,10 +30,17 @@ const services = [
 ];
 
 const reasons = [
-  { icon: Zap, title: "Velocity", desc: "Ship in weeks, not quarters. Senior engineers, no handoffs." },
-  { icon: Brain, title: "AI-native", desc: "Automation and AI baked into every product we deliver." },
-  { icon: ShieldCheck, title: "Production-grade", desc: "Secure, observable, and built to scale from day one." },
-  { icon: Rocket, title: "Growth-focused", desc: "We measure outcomes — revenue, retention, conversions." },
+  { icon: Zap, title: "Fast Delivery", desc: "Projects delivered efficiently with clear communication." },
+  { icon: Brain, title: "AI-Powered Solutions", desc: "Automation and AI integrated where it matters." },
+  { icon: ShieldCheck, title: "Growth Focused", desc: "Built to generate leads, sales, and business growth." },
+  { icon: Rocket, title: "Direct Partnership", desc: "Work directly with experienced developers and marketers." },
+];
+
+const advantages = [
+  ["100% Custom Solutions", "Built around your business goals"],
+  ["Transparent Pricing", "No hidden costs or surprises"],
+  ["Direct Founder Access", "Speak directly with the people building your project"],
+  ["Long-Term Partnership", "Support beyond launch"],
 ];
 
 const testimonials = [
