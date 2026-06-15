@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Layout } from "@/components/site/Layout";
 import { Section, SectionHeader } from "@/components/site/Section";
 import {
-  ArrowRight, Code2, Smartphone, Brain, Search, Share2, TrendingUp,
+  ArrowRight, Code2, Smartphone, Brain, Search, Handshake,
   Zap, ShieldCheck, Rocket, Star,
 } from "lucide-react";
 import { InteractiveDots } from "@/components/site/InteractiveDots";
