@@ -95,6 +95,7 @@ function Home() {
                   <s.icon size={20} />
                 </div>
                 <h3 className="mt-4 text-lg font-semibold">{s.title}</h3>
+                <p className="mt-1 text-xs uppercase tracking-widest text-[var(--brand-blue)]">{s.subtitle}</p>
                 <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
               </div>
             </div>
