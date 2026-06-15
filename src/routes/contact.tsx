@@ -124,6 +124,9 @@ function Contact() {
             >
               {sending ? "Sending…" : <>Send message <Send size={16} /></>}
             </button>
+            <p className="text-xs text-muted-foreground">
+              Your information is kept private and will only be used to contact you about your project.
+            </p>
           </form>
 
           <aside className="lg:col-span-2 space-y-4">
