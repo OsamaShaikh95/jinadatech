@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Layout } from "@/components/site/Layout";
 import { Section, SectionHeader } from "@/components/site/Section";
 import {
-  ArrowRight, Code2, Smartphone, Brain, Search, Share2, TrendingUp,
+  ArrowRight, Code2, Smartphone, Brain, Search, Handshake,
   Zap, ShieldCheck, Rocket, Star,
 } from "lucide-react";
 import { InteractiveDots } from "@/components/site/InteractiveDots";
@@ -22,12 +22,11 @@ export const Route = createFileRoute("/")({
 });
 
 const services = [
-  { icon: Code2, title: "Web Development", desc: "Premium, blazing-fast websites and web apps built on modern stacks." },
-  { icon: Smartphone, title: "Mobile App Development", desc: "Native-feeling iOS and Android products that scale with your business." },
-  { icon: Brain, title: "AI Automation", desc: "LLM agents, internal copilots and workflows that remove busywork." },
-  { icon: Search, title: "SEO & Marketing", desc: "Technical SEO and content systems that compound month over month." },
-  { icon: Share2, title: "Social Media Management", desc: "On-brand content, scheduling and growth across every channel." },
-  { icon: TrendingUp, title: "Business Growth Consulting", desc: "Strategy, systems and tooling to scale operations sustainably." },
+  { icon: Code2, title: "Website Development", subtitle: "Website Build & Launch", desc: "We design custom websites to attract customers, showcase your brand and convert visitors into leads." },
+  { icon: Smartphone, title: "App Development", subtitle: "App Development & Growth", desc: "End-to-end mobile app development, deployment, and growth strategies that help businesses scale." },
+  { icon: Search, title: "SEO & Marketing", subtitle: "Traffic & Digital Growth", desc: "SEO, content marketing, and social media strategies designed to increase visibility, traffic, and conversions." },
+  { icon: Brain, title: "AI & Automation", subtitle: "AI & Business Automation", desc: "Automate repetitive tasks, streamline operations, and boost productivity with custom AI-powered workflows." },
+  { icon: Handshake, title: "Complete Partnership", subtitle: "Your All-In-One Digital Partner", desc: "From websites and apps to marketing, SEO, and automation—we handle your digital growth so you can focus on your business." },
 ];
 
 const reasons = [
@@ -96,6 +95,7 @@ function Home() {
                   <s.icon size={20} />
                 </div>
                 <h3 className="mt-4 text-lg font-semibold">{s.title}</h3>
+                <p className="mt-1 text-xs uppercase tracking-widest text-[var(--brand-blue)]">{s.subtitle}</p>
                 <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
               </div>
             </div>
