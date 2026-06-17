@@ -1,4 +1,5 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useRouter, useRouterState } from "@tanstack/react-router";
+import { useEffect } from "react";
 import { Layout } from "@/components/site/Layout";
 import { Section, SectionHeader } from "@/components/site/Section";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
@@ -46,6 +47,29 @@ const services: ServiceCard[] = [
 ];
 
 function Services() {
+  const router = useRouter();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+
+  useEffect(() => {
+    const registered = new Set(
+      Object.values(router.routesById).map((r) => r.fullPath as string),
+    );
+    const seen = new Set<string>();
+    const issues: string[] = [];
+    for (const s of services) {
+      if (!s.href) continue;
+      if (seen.has(s.href)) issues.push(`Duplicate target: ${s.href} (${s.title})`);
+      seen.add(s.href);
+      if (!registered.has(s.href)) issues.push(`Unregistered route for "${s.title}": ${s.href}`);
+      if (s.href === pathname) issues.push(`"${s.title}" links to current page (${pathname})`);
+    }
+    if (issues.length) {
+      console.warn("[services] Learn more link validation failed:\n  " + issues.join("\n  "));
+    } else {
+      console.info(`[services] Validated ${seen.size} Learn more links ✓`);
+    }
+  }, [router, pathname]);
+
   return (
     <Layout>
       <Section>
@@ -85,8 +109,20 @@ function Services() {
                 )}
               </div>
             );
+            const isCurrent = s.href === pathname;
             return s.href ? (
-              <Link key={s.title} to={s.href} className="block cursor-pointer">
+              <Link
+                key={s.title}
+                to={s.href}
+                className="block cursor-pointer"
+                onClick={(e) => {
+                  if (isCurrent) {
+                    e.preventDefault();
+                    console.warn(`[services] Skipped reload — already on ${s.href}`);
+                  }
+                }}
+                aria-disabled={isCurrent || undefined}
+              >
                 {Card}
               </Link>
             ) : (
