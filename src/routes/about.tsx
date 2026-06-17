@@ -10,12 +10,19 @@ export const Route = createFileRoute("/about")({
       { name: "description", content: "Jinada Tech is a technology partner helping startups and local businesses grow online through modern digital solutions." },
       { property: "og:title", content: "About Jinada Tech" },
       { property: "og:description", content: "Helping startups and local businesses grow online through modern digital solutions." },
-      { property: "og:url", content: "/about" },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://jinadatech.com/about" },
+      { property: "og:image", content: "https://jinadatech.com/jinada-mark.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "About Jinada Tech" },
+      { name: "twitter:description", content: "Helping startups and local businesses grow online through modern digital solutions." },
+      { name: "twitter:image", content: "https://jinadatech.com/jinada-mark.png" },
     ],
-    links: [{ rel: "canonical", href: "/about" }],
+    links: [{ rel: "canonical", href: "https://jinadatech.com/about" }],
   }),
   component: About,
 });
+
 
 const values = [
   { icon: Lightbulb, title: "Innovation first", desc: "We bet on emerging tech early — AI, edge, automation — and deploy it pragmatically." },
