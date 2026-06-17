@@ -9,7 +9,7 @@ const SITE = "https://jinadatech.com";
 const TITLE = "Services — Web, Mobile, AI & Growth | Jinada Tech";
 const DESC = "Website and app development, SEO and marketing, AI automation, and complete digital partnership for modern businesses.";
 
-export const Route = createFileRoute("/services")({
+export const Route = createFileRoute("/services/")({
   head: () => ({
     meta: [
       { title: TITLE },
