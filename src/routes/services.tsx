@@ -42,8 +42,8 @@ function Services() {
                 <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl glass-strong text-[var(--brand-blue)] group-hover:text-[var(--brand-blue-soft)] transition shrink-0">
                   <s.icon size={22} />
                 </div>
-                <h3 className="mt-4 text-lg font-semibold">{s.title}</h3>
-                <p className="mt-1 text-xs uppercase tracking-widest text-[var(--brand-blue)]">{s.subtitle}</p>
+                <h3 className="mt-4 text-lg font-semibold leading-snug min-h-[3.5rem]">{s.title}</h3>
+                <p className="mt-1 text-xs uppercase tracking-widest text-[var(--brand-blue)] leading-snug min-h-[2.25rem]">{s.subtitle}</p>
                 <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
                 <ul className="mt-4 space-y-2">
                   {s.points.map((p) => (
