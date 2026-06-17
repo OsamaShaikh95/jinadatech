@@ -16,7 +16,9 @@ export function FAQ({ items, title = "Frequently asked questions" }: { items: FA
   };
   return (
     <div>
-      <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight mb-8 text-center">{title}</h2>
+      {title && (
+        <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight mb-8 text-center">{title}</h2>
+      )}
       <div className="max-w-3xl mx-auto space-y-3">
         {items.map((it, i) => {
           const isOpen = open === i;
