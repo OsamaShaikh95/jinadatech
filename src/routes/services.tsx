@@ -1,4 +1,5 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useRouter, useRouterState } from "@tanstack/react-router";
+import { useEffect } from "react";
 import { Layout } from "@/components/site/Layout";
 import { Section, SectionHeader } from "@/components/site/Section";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
