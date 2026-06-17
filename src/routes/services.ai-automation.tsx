@@ -1,12 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Brain } from "lucide-react";
+import { Bot, MessageSquare, Workflow, Plug, BrainCircuit, Target, Cog } from "lucide-react";
 import { ServicePage } from "@/components/site/ServicePage";
 
 const SITE = "https://jinadatech.com";
 const SLUG = "ai-automation";
 const URL = `${SITE}/services/${SLUG}`;
-const TITLE = "AI Automation Services — Custom AI Agents & Workflows | Jinada Tech";
-const DESC = "Custom AI automation for your business: AI agents, RAG, workflow automation, and internal copilots that save hours and scale operations.";
+const TITLE = "AI & Automation Services — Chatbots, Workflows & AI Agents | Jinada Tech";
+const DESC = "AI chatbots, workflow automation, CRM integrations, and internal AI assistants. Cut repetitive work, qualify leads automatically, and scale operations without scaling headcount.";
 
 export const Route = createFileRoute("/services/ai-automation")({
   head: () => ({
@@ -32,46 +32,63 @@ function Page() {
   return (
     <ServicePage
       slug={SLUG}
-      icon={Brain}
+      icon={Bot}
       eyebrow="AI & Automation"
-      h1={<>AI automation that <span style={{ color: "#F59E0B" }}>saves hours</span> every week</>}
-      intro="We build custom AI agents, RAG systems, and workflow automations that plug into your existing tools — so your team spends time on what matters, not on busywork."
+      h1={<>AI that actually <span style={{ color: "#F59E0B" }}>runs your operations</span></>}
+      intro="From AI chatbots and lead qualification to internal copilots and CRM workflows — we build practical automations that cut busywork and let your team focus on higher-value work."
       accent="#F59E0B"
       signature="Quiet automations. Loud results."
       stats={[
-        { value: "20+ hrs", label: "Saved per team / week" },
-        { value: "<5 wks", label: "First pilot in production" },
-        { value: "24/7", label: "Always-on agents" },
+        { value: "40–70%", label: "Hours saved on routine tasks" },
+        { value: "<24h", label: "Lead-response time after AI" },
+        { value: "GPT / Claude / Gemini", label: "Best model per use case" },
       ]}
       serviceName="AI & Automation"
-      serviceDescription="Custom AI agents, RAG and vector search, workflow automation, and internal copilots integrated with your existing tools and data."
-      outcomes={[
-        { title: "Custom AI agents", desc: "Purpose-built agents for sales, support, ops, and internal tooling." },
-        { title: "RAG & vector search", desc: "Answer questions over your docs, knowledge base, and product data — accurately." },
-        { title: "Workflow automation", desc: "Connect CRM, email, Slack, sheets, and APIs. The repetitive stuff runs itself." },
-        { title: "Internal copilots", desc: "Domain-specific assistants for your team — trained on how you actually work." },
-        { title: "Secure by design", desc: "Your data stays yours. Tenant isolation, audit logs, and privacy-first model choices." },
-        { title: "Measurable ROI", desc: "We track hours saved and revenue moved — not model benchmarks." },
+      serviceDescription="Custom AI chatbots, workflow automation, CRM integrations, internal AI assistants, lead qualification, and business process automation."
+      overview={{
+        includes:
+          "AI opportunity audit, custom chatbot and agent development, workflow automation, CRM and tool integrations, internal AI assistants, and ongoing model + prompt tuning.",
+        audience:
+          "Operations leaders, founders, and revenue teams drowning in repetitive tasks — manual data entry, inbox triage, lead qualification, customer support, and report generation.",
+        solves:
+          "Slow lead response, repetitive data entry, support tickets that pile up, sales reps stuck on admin instead of selling, and tools that don't talk to each other.",
+      }}
+      included={[
+        { title: "AI Chatbots", desc: "Branded chat agents on your site or in WhatsApp / Slack — trained on your docs and data.", icon: MessageSquare },
+        { title: "Workflow Automation", desc: "Multi-step automations across the tools you already use — no more copy-paste between apps.", icon: Workflow },
+        { title: "CRM Integrations", desc: "HubSpot, Salesforce, Pipedrive, Zoho — connected to your website, ads, and AI agents.", icon: Plug },
+        { title: "Internal AI Assistants", desc: "Custom copilots trained on your SOPs, wikis, and data — answer questions in seconds.", icon: BrainCircuit },
+        { title: "Lead Qualification", desc: "AI-powered scoring, enrichment, and routing — sales only sees leads worth their time.", icon: Target },
+        { title: "Business Process Automation", desc: "End-to-end automation of quotes, invoicing, onboarding, reporting, and back-office ops.", icon: Cog },
+      ]}
+      benefits={[
+        { title: "Save dozens of hours per week", desc: "Routine work — data entry, formatting, triage, summaries — shifts from humans to agents that run 24/7." },
+        { title: "Faster response times", desc: "AI chat and routing reply to leads and customers in seconds, even outside business hours." },
+        { title: "Scale without hiring", desc: "Absorb more volume — leads, tickets, orders — without proportional growth in headcount." },
+        { title: "Better data, better decisions", desc: "Automated capture and enrichment means your CRM and dashboards are finally accurate." },
+        { title: "Higher conversion rates", desc: "Instant follow-up, personalized outreach, and qualified routing turn more leads into customers." },
+        { title: "Happier employees", desc: "Your team stops doing soul-crushing busywork and focuses on the work they were hired for." },
       ]}
       process={[
-        { step: "01", title: "Map", desc: "Identify the highest-leverage workflows to automate first." },
-        { step: "02", title: "Prototype", desc: "Build a working demo in 1–2 weeks so you can feel the impact early." },
-        { step: "03", title: "Integrate", desc: "Wire into your stack: CRM, email, Slack, databases, APIs." },
-        { step: "04", title: "Operate", desc: "Monitoring, evals, and iteration so quality keeps improving." },
+        { step: "01", title: "Discovery", desc: "Workshop with your team to map workflows and identify the highest-ROI automation candidates." },
+        { step: "02", title: "Strategy", desc: "Prioritized automation roadmap, tool stack, model selection, and success metrics." },
+        { step: "03", title: "Design", desc: "Conversation flows, agent prompts, integration architecture, and human-in-the-loop checkpoints." },
+        { step: "04", title: "Development", desc: "Build, integrate, and test agents and workflows against real data in a sandbox environment." },
+        { step: "05", title: "Launch", desc: "Phased rollout with monitoring, fallbacks, and team training so adoption actually sticks." },
+        { step: "06", title: "Optimization", desc: "Prompt tuning, model upgrades, new use cases — your AI gets smarter every month." },
       ]}
-      stack={["OpenAI", "Anthropic", "LangChain", "Pinecone", "Supabase", "n8n", "Zapier", "Vercel AI SDK"]}
       faqs={[
-        { q: "What kinds of tasks can you automate?", a: "Common wins include lead qualification, customer support triage, document Q&A, report generation, data entry, content drafting, and internal knowledge search. If a person does it repeatedly from a screen, it's usually automatable." },
-        { q: "Will AI replace my employees?", a: "No — it augments them. Our automations remove the repetitive parts of work so your team can focus on judgment, relationships, and creative work that humans do best." },
-        { q: "How is my data kept private?", a: "We default to providers and configurations that don't train on your data, deploy in tenant-isolated infrastructure, and add audit logs. For sensitive workloads we can run open-source models in your cloud." },
-        { q: "Can the AI use my company's documents and data?", a: "Yes — that's what RAG (retrieval-augmented generation) is for. We ingest your docs, knowledge base, or database and let the AI answer with cited sources from your data." },
-        { q: "What does AI automation cost?", a: "Most projects start at $5k–$15k for a working pilot. Production rollouts and ongoing improvement typically run on a monthly retainer. We share a fixed quote after a free discovery call." },
-        { q: "How do you measure success?", a: "Hours saved per week, tickets deflected, leads qualified, revenue influenced — whatever metric maps to real business outcomes for your team." },
+        { q: "What business processes can be automated?", a: "Almost anything repetitive with structured inputs: lead capture and qualification, customer support, data entry, invoicing, onboarding, reporting, content generation, meeting notes, CRM updates, and inter-tool sync. We start with the highest-ROI workflows for your business." },
+        { q: "Do I need AI for my business?", a: "If your team spends hours per week on routine tasks, slow lead response is costing you deals, or your tools don't talk to each other — yes. The bigger question is which workflows to automate first, which we figure out together in discovery." },
+        { q: "Can AI integrate with existing systems?", a: "Yes. We integrate with HubSpot, Salesforce, Pipedrive, Slack, Notion, Google Workspace, Microsoft 365, Zapier, Make, custom APIs — and most things in between. If it has an API or webhook, it can talk to your AI." },
+        { q: "Will automation replace employees?", a: "No — it removes the worst parts of their day. Our automations are designed to handle the repetitive busywork so your team can focus on strategic, creative, and customer-facing work that actually requires a human." },
+        { q: "How long does implementation take?", a: "A focused first automation typically ships in 2–4 weeks. Larger multi-system rollouts take 6–12 weeks. We always start with a single high-impact workflow so you see ROI quickly before scaling." },
       ]}
       related={[
         { title: "Website Development", href: "/services/website-development" },
-        { title: "Mobile App Development", href: "/services/mobile-app-development" },
         { title: "SEO & Marketing", href: "/services/seo-marketing" },
+        { title: "Mobile App Development", href: "/services/mobile-app-development" },
+        { title: "Complete Partnership", href: "/services/complete-partnership" },
       ]}
     />
   );
