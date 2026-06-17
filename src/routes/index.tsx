@@ -14,20 +14,36 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "We partner with startups and businesses to create fast, modern software that delivers real business results." },
       { property: "og:title", content: "Jinada Tech — Websites • Apps • AI Automation" },
       { property: "og:description", content: "We partner with startups and businesses to create fast, modern software that delivers real business results." },
-      { property: "og:url", content: "/" },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://jinadatech.com/" },
+      { property: "og:image", content: "https://jinadatech.com/jinada-mark.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Jinada Tech — Websites • Apps • AI Automation" },
+      { name: "twitter:description", content: "We partner with startups and businesses to create fast, modern software that delivers real business results." },
+      { name: "twitter:image", content: "https://jinadatech.com/jinada-mark.png" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://jinadatech.com/" }],
   }),
   component: Home,
 });
 
-const services = [
-  { icon: Code2, title: "Website Development", subtitle: "Website Build & Launch", desc: "We design custom websites to attract customers, showcase your brand and convert visitors into leads." },
-  { icon: Smartphone, title: "App Development", subtitle: "App Development & Growth", desc: "End-to-end mobile app development, deployment, and growth strategies that help businesses scale." },
-  { icon: Search, title: "SEO & Marketing", subtitle: "Traffic & Digital Growth", desc: "SEO, content marketing, and social media strategies designed to increase visibility, traffic, and conversions." },
-  { icon: Brain, title: "AI & Automation", subtitle: "AI & Business Automation", desc: "Automate repetitive tasks, streamline operations, and boost productivity with custom AI-powered workflows." },
-  { icon: Handshake, title: "Complete Partnership", subtitle: "Your All-In-One Digital Partner", desc: "From websites and apps to marketing, SEO, and automation—we handle your digital growth so you can focus on your business." },
+
+type HomeService = {
+  icon: typeof Code2;
+  title: string;
+  subtitle: string;
+  desc: string;
+  href?: "/services/website-development" | "/services/mobile-app-development" | "/services/seo-marketing" | "/services/ai-automation" | "/services";
+};
+
+const services: HomeService[] = [
+  { icon: Code2, title: "Website Development", subtitle: "Website Build & Launch", desc: "We design custom websites to attract customers, showcase your brand and convert visitors into leads.", href: "/services/website-development" },
+  { icon: Smartphone, title: "App Development", subtitle: "App Development & Growth", desc: "End-to-end mobile app development, deployment, and growth strategies that help businesses scale.", href: "/services/mobile-app-development" },
+  { icon: Search, title: "SEO & Marketing", subtitle: "Traffic & Digital Growth", desc: "SEO, content marketing, and social media strategies designed to increase visibility, traffic, and conversions.", href: "/services/seo-marketing" },
+  { icon: Brain, title: "AI & Automation", subtitle: "AI & Business Automation", desc: "Automate repetitive tasks, streamline operations, and boost productivity with custom AI-powered workflows.", href: "/services/ai-automation" },
+  { icon: Handshake, title: "Complete Partnership", subtitle: "Your All-In-One Digital Partner", desc: "From websites and apps to marketing, SEO, and automation—we handle your digital growth so you can focus on your business.", href: "/services" },
 ];
+
 
 const reasons = [
   { icon: Zap, title: "Fast Delivery", desc: "Projects delivered efficiently with clear communication." },
@@ -95,9 +111,8 @@ function Home() {
         />
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
           {services.map((s) => {
-            return (
-              <div key={s.title} className="group relative glass rounded-2xl p-6 hover:border-white/20 transition overflow-hidden">
-
+            const inner = (
+              <div className="group relative glass rounded-2xl p-6 hover:border-white/20 transition overflow-hidden h-full">
                 <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-[var(--brand-blue)]/0 via-[var(--brand-blue-soft)]/0 to-[var(--brand-blue)]/0 group-hover:from-[var(--brand-blue)]/20 group-hover:via-[var(--brand-blue-soft)]/15 group-hover:to-[var(--brand-blue)]/20 transition opacity-60 pointer-events-none" />
                 <div className="relative">
                   <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl glass-strong text-[var(--brand-blue)] group-hover:text-[var(--brand-blue-soft)] transition">
@@ -109,8 +124,14 @@ function Home() {
                 </div>
               </div>
             );
+            return s.href ? (
+              <Link key={s.title} to={s.href} className="block">{inner}</Link>
+            ) : (
+              <div key={s.title}>{inner}</div>
+            );
           })}
         </div>
+
         <div className="mt-10 text-center">
           <Link to="/services" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
             See all services <ArrowRight size={14} />

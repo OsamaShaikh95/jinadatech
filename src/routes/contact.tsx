@@ -12,12 +12,19 @@ export const Route = createFileRoute("/contact")({
       { name: "description", content: "Get in touch with Jinada Tech. Tell us about your project and we'll respond within one business day." },
       { property: "og:title", content: "Contact | Jinada Tech" },
       { property: "og:description", content: "Book a free strategy call or send us a project brief." },
-      { property: "og:url", content: "/contact" },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://jinadatech.com/contact" },
+      { property: "og:image", content: "https://jinadatech.com/jinada-mark.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Contact | Jinada Tech" },
+      { name: "twitter:description", content: "Book a free strategy call or send us a project brief." },
+      { name: "twitter:image", content: "https://jinadatech.com/jinada-mark.png" },
     ],
-    links: [{ rel: "canonical", href: "/contact" }],
+    links: [{ rel: "canonical", href: "https://jinadatech.com/contact" }],
   }),
   component: Contact,
 });
+
 
 function Field({ label, name, type = "text", placeholder, required = true }: { label: string; name: string; type?: string; placeholder?: string; required?: boolean }) {
   const id = useId();

@@ -15,6 +15,10 @@ import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesWebsiteDevelopmentRouteImport } from './routes/services.website-development'
+import { Route as ServicesSeoMarketingRouteImport } from './routes/services.seo-marketing'
+import { Route as ServicesMobileAppDevelopmentRouteImport } from './routes/services.mobile-app-development'
+import { Route as ServicesAiAutomationRouteImport } from './routes/services.ai-automation'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -47,6 +51,28 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesWebsiteDevelopmentRoute =
+  ServicesWebsiteDevelopmentRouteImport.update({
+    id: '/website-development',
+    path: '/website-development',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesSeoMarketingRoute = ServicesSeoMarketingRouteImport.update({
+  id: '/seo-marketing',
+  path: '/seo-marketing',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesMobileAppDevelopmentRoute =
+  ServicesMobileAppDevelopmentRouteImport.update({
+    id: '/mobile-app-development',
+    path: '/mobile-app-development',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesAiAutomationRoute = ServicesAiAutomationRouteImport.update({
+  id: '/ai-automation',
+  path: '/ai-automation',
+  getParentRoute: () => ServicesRoute,
+} as any)
 const ApiChatRoute = ApiChatRouteImport.update({
   id: '/api/chat',
   path: '/api/chat',
@@ -58,18 +84,26 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/portfolio': typeof PortfolioRoute
-  '/services': typeof ServicesRoute
+  '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/api/chat': typeof ApiChatRoute
+  '/services/ai-automation': typeof ServicesAiAutomationRoute
+  '/services/mobile-app-development': typeof ServicesMobileAppDevelopmentRoute
+  '/services/seo-marketing': typeof ServicesSeoMarketingRoute
+  '/services/website-development': typeof ServicesWebsiteDevelopmentRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/portfolio': typeof PortfolioRoute
-  '/services': typeof ServicesRoute
+  '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/api/chat': typeof ApiChatRoute
+  '/services/ai-automation': typeof ServicesAiAutomationRoute
+  '/services/mobile-app-development': typeof ServicesMobileAppDevelopmentRoute
+  '/services/seo-marketing': typeof ServicesSeoMarketingRoute
+  '/services/website-development': typeof ServicesWebsiteDevelopmentRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -77,9 +111,13 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/portfolio': typeof PortfolioRoute
-  '/services': typeof ServicesRoute
+  '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/api/chat': typeof ApiChatRoute
+  '/services/ai-automation': typeof ServicesAiAutomationRoute
+  '/services/mobile-app-development': typeof ServicesMobileAppDevelopmentRoute
+  '/services/seo-marketing': typeof ServicesSeoMarketingRoute
+  '/services/website-development': typeof ServicesWebsiteDevelopmentRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -91,6 +129,10 @@ export interface FileRouteTypes {
     | '/services'
     | '/sitemap.xml'
     | '/api/chat'
+    | '/services/ai-automation'
+    | '/services/mobile-app-development'
+    | '/services/seo-marketing'
+    | '/services/website-development'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -100,6 +142,10 @@ export interface FileRouteTypes {
     | '/services'
     | '/sitemap.xml'
     | '/api/chat'
+    | '/services/ai-automation'
+    | '/services/mobile-app-development'
+    | '/services/seo-marketing'
+    | '/services/website-development'
   id:
     | '__root__'
     | '/'
@@ -109,6 +155,10 @@ export interface FileRouteTypes {
     | '/services'
     | '/sitemap.xml'
     | '/api/chat'
+    | '/services/ai-automation'
+    | '/services/mobile-app-development'
+    | '/services/seo-marketing'
+    | '/services/website-development'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -116,7 +166,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   PortfolioRoute: typeof PortfolioRoute
-  ServicesRoute: typeof ServicesRoute
+  ServicesRoute: typeof ServicesRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   ApiChatRoute: typeof ApiChatRoute
 }
@@ -165,6 +215,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/website-development': {
+      id: '/services/website-development'
+      path: '/website-development'
+      fullPath: '/services/website-development'
+      preLoaderRoute: typeof ServicesWebsiteDevelopmentRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/seo-marketing': {
+      id: '/services/seo-marketing'
+      path: '/seo-marketing'
+      fullPath: '/services/seo-marketing'
+      preLoaderRoute: typeof ServicesSeoMarketingRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/mobile-app-development': {
+      id: '/services/mobile-app-development'
+      path: '/mobile-app-development'
+      fullPath: '/services/mobile-app-development'
+      preLoaderRoute: typeof ServicesMobileAppDevelopmentRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/ai-automation': {
+      id: '/services/ai-automation'
+      path: '/ai-automation'
+      fullPath: '/services/ai-automation'
+      preLoaderRoute: typeof ServicesAiAutomationRouteImport
+      parentRoute: typeof ServicesRoute
+    }
     '/api/chat': {
       id: '/api/chat'
       path: '/api/chat'
@@ -175,25 +253,33 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface ServicesRouteChildren {
+  ServicesAiAutomationRoute: typeof ServicesAiAutomationRoute
+  ServicesMobileAppDevelopmentRoute: typeof ServicesMobileAppDevelopmentRoute
+  ServicesSeoMarketingRoute: typeof ServicesSeoMarketingRoute
+  ServicesWebsiteDevelopmentRoute: typeof ServicesWebsiteDevelopmentRoute
+}
+
+const ServicesRouteChildren: ServicesRouteChildren = {
+  ServicesAiAutomationRoute: ServicesAiAutomationRoute,
+  ServicesMobileAppDevelopmentRoute: ServicesMobileAppDevelopmentRoute,
+  ServicesSeoMarketingRoute: ServicesSeoMarketingRoute,
+  ServicesWebsiteDevelopmentRoute: ServicesWebsiteDevelopmentRoute,
+}
+
+const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
+  ServicesRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   PortfolioRoute: PortfolioRoute,
-  ServicesRoute: ServicesRoute,
+  ServicesRoute: ServicesRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   ApiChatRoute: ApiChatRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
