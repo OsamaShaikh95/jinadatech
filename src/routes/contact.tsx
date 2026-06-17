@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Layout } from "@/components/site/Layout";
 import { Section, SectionHeader } from "@/components/site/Section";
-import { Mail, Globe, ArrowRight, Send } from "lucide-react";
+import { Mail, Globe, ArrowRight, Send, Phone } from "lucide-react";
 import { useId, useState } from "react";
 import { toast } from "sonner";
 
@@ -137,6 +137,12 @@ function Contact() {
                   <a href="mailto:info@jinadatech.com" className="flex items-center gap-3 hover:text-[var(--neon-cyan)]">
                     <span className="w-9 h-9 rounded-xl glass-strong inline-flex items-center justify-center"><Mail size={16} /></span>
                     info@jinadatech.com
+                  </a>
+                </li>
+                <li>
+                  <a href="tel:+15123871981" className="flex items-center gap-3 hover:text-[var(--brand-blue)]">
+                    <span className="w-9 h-9 rounded-xl glass-strong inline-flex items-center justify-center"><Phone size={16} /></span>
+                    +1-512-387-1981
                   </a>
                 </li>
                 <li>

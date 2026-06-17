@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { Mail, Globe, Phone } from "lucide-react";
 import { Logo } from "./Logo";
 
 export function Footer() {
@@ -24,8 +25,9 @@ export function Footer() {
         <div>
           <h4 className="text-sm font-semibold mb-3">Contact</h4>
           <ul className="space-y-2 text-sm text-muted-foreground">
-            <li><a href="mailto:info@jinadatech.com" className="hover:text-foreground">info@jinadatech.com</a></li>
-            <li><a href="https://jinadatech.com" className="hover:text-foreground">jinadatech.com</a></li>
+            <li><a href="mailto:info@jinadatech.com" className="flex items-center gap-2 hover:text-foreground"><Mail size={14} className="text-[var(--brand-blue)]" /> info@jinadatech.com</a></li>
+            <li><a href="tel:+15123871981" className="flex items-center gap-2 hover:text-foreground"><Phone size={14} className="text-[var(--brand-blue)]" /> +1-512-387-1981</a></li>
+            <li><a href="https://jinadatech.com" className="flex items-center gap-2 hover:text-foreground"><Globe size={14} className="text-[var(--brand-blue)]" /> jinadatech.com</a></li>
           </ul>
         </div>
       </div>
