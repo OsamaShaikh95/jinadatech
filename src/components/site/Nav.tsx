@@ -9,6 +9,7 @@ const links = [
   { to: "/services", label: "Services" },
   // { to: "/portfolio", label: "Portfolio" }, // hidden until portfolio is ready
   { to: "/about", label: "About" },
+  { to: "/faq", label: "FAQ" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
