@@ -19,6 +19,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesWebsiteDevelopmentRouteImport } from './routes/services.website-development'
 import { Route as ServicesSeoMarketingRouteImport } from './routes/services.seo-marketing'
 import { Route as ServicesMobileAppDevelopmentRouteImport } from './routes/services.mobile-app-development'
+import { Route as ServicesCompletePartnershipRouteImport } from './routes/services.complete-partnership'
 import { Route as ServicesAiAutomationRouteImport } from './routes/services.ai-automation'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 
@@ -74,6 +75,12 @@ const ServicesMobileAppDevelopmentRoute =
     path: '/mobile-app-development',
     getParentRoute: () => ServicesRoute,
   } as any)
+const ServicesCompletePartnershipRoute =
+  ServicesCompletePartnershipRouteImport.update({
+    id: '/complete-partnership',
+    path: '/complete-partnership',
+    getParentRoute: () => ServicesRoute,
+  } as any)
 const ServicesAiAutomationRoute = ServicesAiAutomationRouteImport.update({
   id: '/ai-automation',
   path: '/ai-automation',
@@ -95,6 +102,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/api/chat': typeof ApiChatRoute
   '/services/ai-automation': typeof ServicesAiAutomationRoute
+  '/services/complete-partnership': typeof ServicesCompletePartnershipRoute
   '/services/mobile-app-development': typeof ServicesMobileAppDevelopmentRoute
   '/services/seo-marketing': typeof ServicesSeoMarketingRoute
   '/services/website-development': typeof ServicesWebsiteDevelopmentRoute
@@ -109,6 +117,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/api/chat': typeof ApiChatRoute
   '/services/ai-automation': typeof ServicesAiAutomationRoute
+  '/services/complete-partnership': typeof ServicesCompletePartnershipRoute
   '/services/mobile-app-development': typeof ServicesMobileAppDevelopmentRoute
   '/services/seo-marketing': typeof ServicesSeoMarketingRoute
   '/services/website-development': typeof ServicesWebsiteDevelopmentRoute
@@ -124,6 +133,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/api/chat': typeof ApiChatRoute
   '/services/ai-automation': typeof ServicesAiAutomationRoute
+  '/services/complete-partnership': typeof ServicesCompletePartnershipRoute
   '/services/mobile-app-development': typeof ServicesMobileAppDevelopmentRoute
   '/services/seo-marketing': typeof ServicesSeoMarketingRoute
   '/services/website-development': typeof ServicesWebsiteDevelopmentRoute
@@ -140,6 +150,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/api/chat'
     | '/services/ai-automation'
+    | '/services/complete-partnership'
     | '/services/mobile-app-development'
     | '/services/seo-marketing'
     | '/services/website-development'
@@ -154,6 +165,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/api/chat'
     | '/services/ai-automation'
+    | '/services/complete-partnership'
     | '/services/mobile-app-development'
     | '/services/seo-marketing'
     | '/services/website-development'
@@ -168,6 +180,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/api/chat'
     | '/services/ai-automation'
+    | '/services/complete-partnership'
     | '/services/mobile-app-development'
     | '/services/seo-marketing'
     | '/services/website-development'
@@ -256,6 +269,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesMobileAppDevelopmentRouteImport
       parentRoute: typeof ServicesRoute
     }
+    '/services/complete-partnership': {
+      id: '/services/complete-partnership'
+      path: '/complete-partnership'
+      fullPath: '/services/complete-partnership'
+      preLoaderRoute: typeof ServicesCompletePartnershipRouteImport
+      parentRoute: typeof ServicesRoute
+    }
     '/services/ai-automation': {
       id: '/services/ai-automation'
       path: '/ai-automation'
@@ -275,6 +295,7 @@ declare module '@tanstack/react-router' {
 
 interface ServicesRouteChildren {
   ServicesAiAutomationRoute: typeof ServicesAiAutomationRoute
+  ServicesCompletePartnershipRoute: typeof ServicesCompletePartnershipRoute
   ServicesMobileAppDevelopmentRoute: typeof ServicesMobileAppDevelopmentRoute
   ServicesSeoMarketingRoute: typeof ServicesSeoMarketingRoute
   ServicesWebsiteDevelopmentRoute: typeof ServicesWebsiteDevelopmentRoute
@@ -282,6 +303,7 @@ interface ServicesRouteChildren {
 
 const ServicesRouteChildren: ServicesRouteChildren = {
   ServicesAiAutomationRoute: ServicesAiAutomationRoute,
+  ServicesCompletePartnershipRoute: ServicesCompletePartnershipRoute,
   ServicesMobileAppDevelopmentRoute: ServicesMobileAppDevelopmentRoute,
   ServicesSeoMarketingRoute: ServicesSeoMarketingRoute,
   ServicesWebsiteDevelopmentRoute: ServicesWebsiteDevelopmentRoute,
