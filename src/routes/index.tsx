@@ -93,20 +93,23 @@ function Home() {
           title={<>End‑to‑end <span className="text-gradient-brand">technology partner</span></>}
           description="From first prototype to scaled product. Six disciplines, one senior team."
         />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {services.map((s) => (
-            <div key={s.title} className="group relative glass rounded-2xl p-6 hover:border-white/20 transition overflow-hidden">
-              <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-[var(--brand-blue)]/0 via-[var(--brand-blue-soft)]/0 to-[var(--brand-blue)]/0 group-hover:from-[var(--brand-blue)]/20 group-hover:via-[var(--brand-blue-soft)]/15 group-hover:to-[var(--brand-blue)]/20 transition opacity-60 pointer-events-none" />
-              <div className="relative">
-                <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl glass-strong text-[var(--brand-blue)] group-hover:text-[var(--brand-blue-soft)] transition">
-                  <s.icon size={20} />
+        <div className="grid sm:grid-cols-2 lg:grid-cols-6 gap-4">
+          {services.map((s, i) => {
+            const span = i < 2 ? "lg:col-span-3" : "lg:col-span-2";
+            return (
+              <div key={s.title} className={`group relative glass rounded-2xl p-6 hover:border-white/20 transition overflow-hidden ${span}`}>
+                <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-[var(--brand-blue)]/0 via-[var(--brand-blue-soft)]/0 to-[var(--brand-blue)]/0 group-hover:from-[var(--brand-blue)]/20 group-hover:via-[var(--brand-blue-soft)]/15 group-hover:to-[var(--brand-blue)]/20 transition opacity-60 pointer-events-none" />
+                <div className="relative">
+                  <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl glass-strong text-[var(--brand-blue)] group-hover:text-[var(--brand-blue-soft)] transition">
+                    <s.icon size={20} />
+                  </div>
+                  <h3 className="mt-4 text-lg font-semibold">{s.title}</h3>
+                  <p className="mt-1 text-xs uppercase tracking-widest text-[var(--brand-blue)]">{s.subtitle}</p>
+                  <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
                 </div>
-                <h3 className="mt-4 text-lg font-semibold">{s.title}</h3>
-                <p className="mt-1 text-xs uppercase tracking-widest text-[var(--brand-blue)]">{s.subtitle}</p>
-                <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
         <div className="mt-10 text-center">
           <Link to="/services" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
