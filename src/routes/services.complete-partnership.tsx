@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Handshake } from "lucide-react";
+import { Handshake, Users, Code2, Megaphone, TrendingUp, Bot, LifeBuoy } from "lucide-react";
 import { ServicePage } from "@/components/site/ServicePage";
 
 const SITE = "https://jinadatech.com";
@@ -35,41 +35,58 @@ function Page() {
       icon={Handshake}
       eyebrow="Complete Partnership"
       h1={<>One <span style={{ color: "#EC4899" }}>senior team</span> for every part of your digital business</>}
-      intro="From websites and apps to marketing, SEO and AI automation — we handle your entire digital stack as an embedded partner, so you stay focused on the business."
+      intro="Development, marketing, SEO, and AI automation — handled by a single embedded team that knows your business inside out. The simplicity of an in-house team without the overhead."
       accent="#EC4899"
       signature="All disciplines. One team. One invoice."
       stats={[
         { value: "5", label: "Disciplines under one roof" },
         { value: "10+ yrs", label: "Avg team experience" },
-        { value: "24/7", label: "Dedicated support" },
+        { value: "24/7", label: "Priority support" },
       ]}
-      serviceName="Complete Partnership"
-      serviceDescription="An end-to-end digital partnership covering website and app development, SEO and marketing, and AI automation — delivered by a single senior team."
-      outcomes={[
-        { title: "Dedicated senior team", desc: "Same people across every discipline — no junior handoffs, no agency churn." },
-        { title: "Strategy & roadmap", desc: "Quarterly planning that ties product, marketing and AI to real revenue goals." },
-        { title: "One point of contact", desc: "A single account lead orchestrating design, engineering, growth and AI." },
-        { title: "Predictable monthly cost", desc: "Flat retainer with clear scope — no surprise hourly invoices." },
-        { title: "Ongoing iteration", desc: "We ship and refine continuously — your product never goes stale." },
-        { title: "24/7 priority support", desc: "Fast response on anything critical — bugs, outages, urgent launches." },
+      serviceName="Complete Digital Partnership"
+      serviceDescription="An end-to-end digital partnership covering web and mobile development, SEO and marketing, and AI automation — delivered by a single dedicated senior team."
+      overview={{
+        includes:
+          "A dedicated senior pod across product, engineering, design, SEO, marketing, and AI — with quarterly strategy, weekly releases, monthly reporting, and 24/7 priority support.",
+        audience:
+          "Founders and growing businesses who need real velocity across every digital surface but don't want to hire, manage, and retain a full in-house tech and marketing team.",
+        solves:
+          "Agency hand-offs that drop the ball, siloed vendors that don't talk, the cost and risk of hiring full-time talent, and slow execution that lets competitors out-ship you.",
+      }}
+      included={[
+        { title: "Dedicated Team", desc: "A named senior pod — same humans every week, not a rotating roster.", icon: Users },
+        { title: "Development", desc: "Web and mobile shipped continuously — features, fixes, refactors, infrastructure.", icon: Code2 },
+        { title: "Marketing", desc: "Content production, social, paid acquisition, and lifecycle campaigns under one strategy.", icon: Megaphone },
+        { title: "SEO", desc: "Technical SEO, content optimization, link building, and reporting compounded month over month.", icon: TrendingUp },
+        { title: "AI Automation", desc: "Internal copilots, chatbots, and workflow automations that scale ops without scaling headcount.", icon: Bot },
+        { title: "Ongoing Support", desc: "Priority Slack channel, incident response, and a single account lead orchestrating everything.", icon: LifeBuoy },
+      ]}
+      benefits={[
+        { title: "One team, one invoice, zero finger-pointing", desc: "Strategy, build, growth, and AI move as one pod — no agency hand-offs, no silos, no blame between vendors." },
+        { title: "Senior talent without the hiring cost", desc: "Get a 10+ year team across five disciplines for less than the loaded cost of two senior hires." },
+        { title: "Velocity that compounds", desc: "Weekly ships across web, mobile, content, and automation mean wins stack on top of each other." },
+        { title: "Strategic alignment", desc: "Quarterly OKRs tie product, marketing, and AI to the same business goals — not isolated dashboards." },
+        { title: "Predictable monthly cost", desc: "Flat retainer with clear scope — no surprise hourly invoices or scope-creep change orders." },
+        { title: "Scale up or down with your roadmap", desc: "Adjust the pod each quarter as priorities shift — add mobile, pause paid, double down on AI." },
       ]}
       process={[
-        { step: "01", title: "Embed", desc: "We embed with your team — Slack, standups, shared roadmap, shared metrics." },
-        { step: "02", title: "Plan", desc: "Quarterly OKRs across product, growth and AI — tied to business outcomes." },
-        { step: "03", title: "Ship", desc: "Weekly releases across web, mobile, content, and automation in parallel." },
-        { step: "04", title: "Compound", desc: "Monthly reviews and refinement — wins compound across every channel." },
+        { step: "01", title: "Discovery", desc: "Deep dive into your business, customers, current stack, and growth goals." },
+        { step: "02", title: "Strategy", desc: "Quarterly roadmap across product, growth, and AI — tied to clear business outcomes." },
+        { step: "03", title: "Design", desc: "Design system, brand foundations, and visual language unified across every surface." },
+        { step: "04", title: "Development", desc: "Weekly releases across web, mobile, content, and automation in parallel sprints." },
+        { step: "05", title: "Launch", desc: "Campaigns, products, and features go live with shared metrics and shared accountability." },
+        { step: "06", title: "Optimization", desc: "Monthly reviews and refinement — wins on one channel compound across the others." },
       ]}
-      stack={["Product strategy", "Design systems", "Web & Mobile", "SEO & Content", "Paid acquisition", "AI agents", "Analytics", "DevOps"]}
       faqs={[
-        { q: "How is this different from hiring an agency?", a: "Agencies typically silo design, dev, and marketing across separate teams who never talk. Our partnership is one senior team working across every discipline — so your website, app, content and automations all move together." },
-        { q: "Do we get dedicated people, or a rotating roster?", a: "Dedicated. You get a named lead plus a fixed pod across the disciplines you need. The same humans every week — no junior handoffs and no surprise replacements." },
-        { q: "What does a partnership cost?", a: "Most partnerships run between $8k–$25k per month depending on scope and seniority. We size the pod to your goals and lock the price in a flat monthly retainer — no surprise invoices." },
-        { q: "Can we start small and scale up?", a: "Yes. Many clients start with one discipline (e.g. website + SEO) and add mobile or AI as they grow. We adjust the pod each quarter based on your roadmap." },
-        { q: "How long is the commitment?", a: "We ask for a 3‑month initial term so we can hit real outcomes. After that it's month‑to‑month — you can pause, scale, or end with 30 days' notice." },
-        { q: "Do you replace our internal team?", a: "We augment, not replace. We work alongside your in-house team — sharing tools, code, and Notion docs — so capability stays with you." },
+        { q: "What does a dedicated partnership include?", a: "A named senior pod across the disciplines you need — typically engineering, design, SEO, marketing, and AI. Plus a dedicated account lead, quarterly strategy, weekly releases, monthly reporting, and a priority Slack channel for day-to-day collaboration." },
+        { q: "Can you handle both development and marketing?", a: "Yes — that's the whole point. Most clients waste enormous time and money coordinating a dev shop, a marketing agency, and a freelancer. We unify all of it under one team with shared roadmap, shared metrics, and one invoice." },
+        { q: "How do communication and reporting work?", a: "You get a shared Slack channel, weekly stand-ups, a shared roadmap in Linear or Notion, and a monthly executive report tying every workstream to business KPIs. Your account lead is one message away." },
+        { q: "Is there a long-term contract?", a: "We ask for a 3-month initial term so we can hit real outcomes (you can't fix SEO or ship a meaningful product in 30 days). After that it's month-to-month — pause, scale, or end with 30 days' notice." },
+        { q: "Can services be adjusted as we grow?", a: "Absolutely. We re-scope the pod every quarter based on your roadmap. Start with web + SEO, add mobile in Q2, lean into AI automation in Q3 — whatever the business needs." },
       ]}
       related={[
         { title: "Website Development", href: "/services/website-development" },
+        { title: "Mobile App Development", href: "/services/mobile-app-development" },
         { title: "SEO & Marketing", href: "/services/seo-marketing" },
         { title: "AI & Automation", href: "/services/ai-automation" },
       ]}
