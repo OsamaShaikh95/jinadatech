@@ -35,32 +35,28 @@ function Services() {
           title={<>Everything you need to <span className="text-gradient-brand">build, automate</span> and scale</>}
           description="One senior team across product, engineering, AI and growth — engaged the way you need."
         />
-        <div className="grid md:grid-cols-2 gap-4">
-          {services.map((s, i) => {
-            const isLast = i === services.length - 1;
+        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          {services.map((s) => {
             return (
-              <div key={s.title} className={`group relative glass rounded-2xl p-7 hover:border-white/20 transition ${isLast ? "md:col-span-2" : ""}`}>
-                <div className="flex items-start gap-4">
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl glass-strong text-[var(--brand-blue)] group-hover:text-[var(--brand-blue-soft)] transition shrink-0">
-                    <s.icon size={22} />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-semibold">{s.title}</h3>
-                    <p className="mt-1 text-xs uppercase tracking-widest text-[var(--brand-blue)]">{s.subtitle}</p>
-                    <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
-                    <ul className={`mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2 ${isLast ? "md:grid-cols-4" : ""}`}>
-                      {s.points.map((p) => (
-                        <li key={p} className="flex items-center gap-2 text-sm text-foreground/90">
-                          <Check size={14} className="text-[var(--brand-blue)]" /> {p}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+              <div key={s.title} className="group relative glass rounded-2xl p-6 hover:border-white/20 transition flex flex-col">
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl glass-strong text-[var(--brand-blue)] group-hover:text-[var(--brand-blue-soft)] transition shrink-0">
+                  <s.icon size={22} />
                 </div>
+                <h3 className="mt-4 text-lg font-semibold">{s.title}</h3>
+                <p className="mt-1 text-xs uppercase tracking-widest text-[var(--brand-blue)]">{s.subtitle}</p>
+                <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
+                <ul className="mt-4 space-y-2">
+                  {s.points.map((p) => (
+                    <li key={p} className="flex items-center gap-2 text-sm text-foreground/90">
+                      <Check size={14} className="text-[var(--brand-blue)] shrink-0" /> {p}
+                    </li>
+                  ))}
+                </ul>
               </div>
             );
           })}
         </div>
+
 
         <div className="mt-16 glass-strong rounded-3xl p-10 text-center">
           <h3 className="text-2xl sm:text-3xl font-semibold">Not sure where to start?</h3>
