@@ -34,8 +34,15 @@ function Page() {
       slug={SLUG}
       icon={Code2}
       eyebrow="Website Development"
-      h1={<>Websites that <span className="text-gradient-brand">attract, convert</span> and scale</>}
+      h1={<>Websites that <span style={{ color: "#3DA9FC" }}>attract, convert</span> and scale</>}
       intro="We design and build custom websites that load fast, rank well, and turn visitors into customers — from marketing sites and landing pages to headless CMS-powered platforms."
+      accent="#3DA9FC"
+      signature="Pixel-perfect. Lightning quick."
+      stats={[
+        { value: "98+", label: "Avg Lighthouse score" },
+        { value: "3–6 wks", label: "Typical launch window" },
+        { value: "100%", label: "Code & assets you own" },
+      ]}
       serviceName="Website Development"
       serviceDescription="Custom website design and development, marketing sites, landing pages, and headless CMS builds with SEO and Core Web Vitals optimization."
       outcomes={[
