@@ -15,6 +15,7 @@ import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesWebsiteDevelopmentRouteImport } from './routes/services.website-development'
 import { Route as ServicesSeoMarketingRouteImport } from './routes/services.seo-marketing'
 import { Route as ServicesMobileAppDevelopmentRouteImport } from './routes/services.mobile-app-development'
@@ -51,6 +52,11 @@ const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ServicesRoute,
 } as any)
 const ServicesWebsiteDevelopmentRoute =
   ServicesWebsiteDevelopmentRouteImport.update({
@@ -99,13 +105,13 @@ export interface FileRoutesByFullPath {
   '/services/mobile-app-development': typeof ServicesMobileAppDevelopmentRoute
   '/services/seo-marketing': typeof ServicesSeoMarketingRoute
   '/services/website-development': typeof ServicesWebsiteDevelopmentRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/portfolio': typeof PortfolioRoute
-  '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/api/chat': typeof ApiChatRoute
   '/services/ai-automation': typeof ServicesAiAutomationRoute
@@ -113,6 +119,7 @@ export interface FileRoutesByTo {
   '/services/mobile-app-development': typeof ServicesMobileAppDevelopmentRoute
   '/services/seo-marketing': typeof ServicesSeoMarketingRoute
   '/services/website-development': typeof ServicesWebsiteDevelopmentRoute
+  '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -128,6 +135,7 @@ export interface FileRoutesById {
   '/services/mobile-app-development': typeof ServicesMobileAppDevelopmentRoute
   '/services/seo-marketing': typeof ServicesSeoMarketingRoute
   '/services/website-development': typeof ServicesWebsiteDevelopmentRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -144,13 +152,13 @@ export interface FileRouteTypes {
     | '/services/mobile-app-development'
     | '/services/seo-marketing'
     | '/services/website-development'
+    | '/services/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/contact'
     | '/portfolio'
-    | '/services'
     | '/sitemap.xml'
     | '/api/chat'
     | '/services/ai-automation'
@@ -158,6 +166,7 @@ export interface FileRouteTypes {
     | '/services/mobile-app-development'
     | '/services/seo-marketing'
     | '/services/website-development'
+    | '/services'
   id:
     | '__root__'
     | '/'
@@ -172,6 +181,7 @@ export interface FileRouteTypes {
     | '/services/mobile-app-development'
     | '/services/seo-marketing'
     | '/services/website-development'
+    | '/services/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -228,6 +238,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/': {
+      id: '/services/'
+      path: '/'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof ServicesRoute
+    }
     '/services/website-development': {
       id: '/services/website-development'
       path: '/website-development'
@@ -279,6 +296,7 @@ interface ServicesRouteChildren {
   ServicesMobileAppDevelopmentRoute: typeof ServicesMobileAppDevelopmentRoute
   ServicesSeoMarketingRoute: typeof ServicesSeoMarketingRoute
   ServicesWebsiteDevelopmentRoute: typeof ServicesWebsiteDevelopmentRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
 const ServicesRouteChildren: ServicesRouteChildren = {
@@ -287,6 +305,7 @@ const ServicesRouteChildren: ServicesRouteChildren = {
   ServicesMobileAppDevelopmentRoute: ServicesMobileAppDevelopmentRoute,
   ServicesSeoMarketingRoute: ServicesSeoMarketingRoute,
   ServicesWebsiteDevelopmentRoute: ServicesWebsiteDevelopmentRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
 }
 
 const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
