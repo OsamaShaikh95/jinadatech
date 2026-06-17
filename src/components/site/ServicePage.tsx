@@ -1,8 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import type { LucideIcon } from "lucide-react";
-import { ArrowRight, Check, Sparkles } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Layout } from "./Layout";
-import { Section } from "./Section";
 import { Breadcrumbs } from "./Breadcrumbs";
 import { FAQ, type FAQItem } from "./FAQ";
 
@@ -17,11 +16,8 @@ export function ServicePage(props: {
   eyebrow: string;
   intro: string;
   icon: LucideIcon;
-  /** CSS color string (any valid color or var(--token)) used as the page accent */
   accent: string;
-  /** Short signature line shown under the hero — should differ per service */
   signature: string;
-  /** 3 metrics shown as a stat strip in the hero */
   stats: ServiceStat[];
   outcomes: { title: string; desc: string }[];
   process: { step: string; title: string; desc: string }[];
@@ -49,235 +45,305 @@ export function ServicePage(props: {
     areaServed: "Worldwide",
   };
 
-  // CSS variable so children can read --svc-accent in arbitrary classes
   const accentStyle = { "--svc-accent": accent } as React.CSSProperties;
+  const softBorder = "color-mix(in oklab, var(--svc-accent) 22%, transparent)";
+  const softBg = "color-mix(in oklab, var(--svc-accent) 8%, transparent)";
 
   return (
     <Layout>
-      <div style={accentStyle}>
-        <Section>
-          <Breadcrumbs
-            items={[
-              { label: "Home", href: "/" },
-              { label: "Services", href: "/services" },
-              { label: serviceName, href: `/services/${slug}` },
-            ]}
-          />
+      <article style={accentStyle} className="relative">
+        {/* Top accent rule */}
+        <div
+          className="absolute top-0 inset-x-0 h-px"
+          style={{ background: `linear-gradient(90deg, transparent, ${accent}, transparent)` }}
+        />
 
-          <div className="grid lg:grid-cols-12 gap-10 items-start">
-            <div className="lg:col-span-7 relative">
-              <div
-                className="absolute -top-24 -left-24 w-[420px] h-[420px] rounded-full blur-[120px] opacity-40 pointer-events-none"
-                style={{ background: "var(--svc-accent)" }}
-              />
-              <div className="relative">
-                <div
-                  className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-6 border"
-                  style={{
-                    borderColor: "color-mix(in oklab, var(--svc-accent) 40%, transparent)",
-                    color: "var(--svc-accent)",
-                    background: "color-mix(in oklab, var(--svc-accent) 10%, transparent)",
-                  }}
-                >
-                  <Sparkles size={12} /> {eyebrow}
+        {/* HERO — editorial split with index column */}
+        <header className="relative pt-32 pb-20 overflow-hidden">
+          <div
+            className="absolute -top-32 -right-32 w-[700px] h-[700px] rounded-full blur-[140px] opacity-30 pointer-events-none"
+            style={{ background: "var(--svc-accent)" }}
+          />
+          <div className="mx-auto max-w-6xl px-4 relative">
+            <Breadcrumbs
+              items={[
+                { label: "Home", href: "/" },
+                { label: "Services", href: "/services" },
+                { label: serviceName, href: `/services/${slug}` },
+              ]}
+            />
+
+            <div className="grid grid-cols-12 gap-6 mt-10">
+              {/* Index column */}
+              <div className="col-span-12 md:col-span-2 md:border-r md:pr-6" style={{ borderColor: softBorder }}>
+                <div className="flex md:flex-col items-start gap-3">
+                  <div
+                    className="inline-flex items-center justify-center w-12 h-12 rounded-xl"
+                    style={{ background: softBg, color: "var(--svc-accent)" }}
+                  >
+                    <Icon size={22} />
+                  </div>
+                  <div>
+                    <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground">Service</div>
+                    <div className="text-sm font-mono mt-1" style={{ color: "var(--svc-accent)" }}>
+                      0{Math.max(1, related.length > 0 ? 1 : 1)} / 05
+                    </div>
+                  </div>
                 </div>
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.05]">{h1}</h1>
-                <p className="mt-6 text-base sm:text-lg text-muted-foreground max-w-2xl">{intro}</p>
-                <p
-                  className="mt-4 text-sm font-medium uppercase tracking-[0.2em]"
+              </div>
+
+              {/* Headline column */}
+              <div className="col-span-12 md:col-span-10">
+                <div
+                  className="text-[11px] font-mono uppercase tracking-[0.3em] mb-6"
                   style={{ color: "var(--svc-accent)" }}
                 >
-                  {signature}
-                </p>
-                <div className="mt-8 flex flex-wrap gap-3">
+                  {eyebrow}
+                </div>
+                <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tight leading-[0.95]">
+                  {h1}
+                </h1>
+                <div className="mt-8 grid md:grid-cols-12 gap-8 items-start">
+                  <p className="md:col-span-7 text-lg sm:text-xl text-muted-foreground leading-relaxed">
+                    {intro}
+                  </p>
+                  <div
+                    className="md:col-span-5 md:pl-6 md:border-l text-sm italic leading-relaxed"
+                    style={{ borderColor: softBorder, color: "color-mix(in oklab, var(--svc-accent) 70%, var(--foreground))" }}
+                  >
+                    “{signature}”
+                  </div>
+                </div>
+
+                <div className="mt-10 flex flex-wrap gap-3">
                   <Link
                     to="/contact"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium text-background transition hover:opacity-90"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-background hover:opacity-90 transition"
                     style={{ background: "var(--svc-accent)" }}
                   >
                     Start a project <ArrowRight size={16} />
                   </Link>
-                  <Link to="/services" className="glass inline-flex items-center px-6 py-3 rounded-xl font-medium hover:bg-white/5 transition">
-                    All services
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            <div className="lg:col-span-5">
-              <div
-                className="relative rounded-3xl p-8 border overflow-hidden bg-background/40 backdrop-blur-sm"
-                style={{ borderColor: "color-mix(in oklab, var(--svc-accent) 25%, transparent)" }}
-              >
-                <div
-                  className="absolute -top-20 -right-20 w-64 h-64 rounded-full blur-3xl opacity-40"
-                  style={{ background: "var(--svc-accent)" }}
-                />
-                <div className="relative">
-                  <div
-                    className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-5"
-                    style={{
-                      background: "color-mix(in oklab, var(--svc-accent) 18%, transparent)",
-                      color: "var(--svc-accent)",
-                    }}
+                  <a
+                    href="#process"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium border hover:bg-white/5 transition"
+                    style={{ borderColor: softBorder }}
                   >
-                    <Icon size={30} />
-                  </div>
-                  <h2 className="text-lg font-semibold">Tools & stack</h2>
-                  <ul className="mt-3 flex flex-wrap gap-2">
-                    {stack.map((s) => (
-                      <li
-                        key={s}
-                        className="rounded-full px-3 py-1 text-xs font-medium border"
-                        style={{
-                          borderColor: "color-mix(in oklab, var(--svc-accent) 30%, transparent)",
-                          color: "color-mix(in oklab, var(--svc-accent) 80%, var(--foreground))",
-                          background: "color-mix(in oklab, var(--svc-accent) 6%, transparent)",
-                        }}
-                      >
-                        {s}
-                      </li>
-                    ))}
-                  </ul>
+                    See our process
+                  </a>
                 </div>
               </div>
             </div>
           </div>
+        </header>
 
-          {/* Stats strip */}
-          <div
-            className="mt-14 grid grid-cols-1 sm:grid-cols-3 rounded-2xl overflow-hidden border bg-background/30"
-            style={{ borderColor: "color-mix(in oklab, var(--svc-accent) 20%, transparent)" }}
-          >
-            {stats.map((s, i) => (
-              <div
-                key={s.label}
-                className={`p-6 ${i > 0 ? "sm:border-l border-t sm:border-t-0" : ""}`}
-                style={{ borderColor: "color-mix(in oklab, var(--svc-accent) 20%, transparent)" }}
-              >
-                <div className="text-3xl sm:text-4xl font-semibold tracking-tight" style={{ color: "var(--svc-accent)" }}>
+        {/* STATS — full-bleed ticker style */}
+        <section
+          className="border-y"
+          style={{ borderColor: softBorder, background: softBg }}
+        >
+          <div className="mx-auto max-w-6xl px-4 py-8 grid grid-cols-1 sm:grid-cols-3 gap-8">
+            {stats.map((s) => (
+              <div key={s.label} className="flex items-baseline gap-4">
+                <div className="text-4xl sm:text-5xl font-semibold tracking-tight tabular-nums" style={{ color: "var(--svc-accent)" }}>
                   {s.value}
                 </div>
-                <div className="mt-1 text-sm text-muted-foreground">{s.label}</div>
-              </div>
-            ))}
-          </div>
-        </Section>
-
-        <Section className="py-12 sm:py-16">
-          <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
-            <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">What you get</h2>
-            <span className="text-xs uppercase tracking-widest" style={{ color: "var(--svc-accent)" }}>Outcomes</span>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {outcomes.map((o) => (
-              <div
-                key={o.title}
-                className="rounded-2xl p-6 border bg-background/40 hover:bg-background/60 transition"
-                style={{ borderColor: "color-mix(in oklab, var(--svc-accent) 18%, transparent)" }}
-              >
-                <div
-                  className="inline-flex items-center justify-center w-9 h-9 rounded-lg"
-                  style={{
-                    background: "color-mix(in oklab, var(--svc-accent) 18%, transparent)",
-                    color: "var(--svc-accent)",
-                  }}
-                >
-                  <Check size={16} />
+                <div className="text-xs uppercase tracking-widest text-muted-foreground leading-tight max-w-[140px]">
+                  {s.label}
                 </div>
-                <h3 className="mt-4 font-semibold">{o.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{o.desc}</p>
               </div>
             ))}
           </div>
-        </Section>
+        </section>
 
-        <Section className="py-12 sm:py-16">
-          <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
-            <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">How we work</h2>
-            <span className="text-xs uppercase tracking-widest" style={{ color: "var(--svc-accent)" }}>Process</span>
-          </div>
-          <div className="relative">
-            <div
-              className="hidden lg:block absolute left-0 right-0 top-6 h-px"
-              style={{ background: "color-mix(in oklab, var(--svc-accent) 30%, transparent)" }}
-            />
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 relative">
-              {process.map((p) => (
-                <div
-                  key={p.title}
-                  className="rounded-2xl p-6 border bg-background/40"
-                  style={{ borderColor: "color-mix(in oklab, var(--svc-accent) 18%, transparent)" }}
+        {/* OUTCOMES — editorial numbered list */}
+        <section className="mx-auto max-w-6xl px-4 py-24">
+          <div className="grid md:grid-cols-12 gap-10">
+            <div className="md:col-span-4">
+              <div className="md:sticky md:top-32">
+                <div className="text-[11px] font-mono uppercase tracking-[0.3em] mb-4" style={{ color: "var(--svc-accent)" }}>
+                  01 — Outcomes
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight leading-tight">
+                  What you actually get from this engagement.
+                </h2>
+                <p className="mt-4 text-muted-foreground text-sm">
+                  Concrete deliverables — not vague promises.
+                </p>
+              </div>
+            </div>
+            <ol className="md:col-span-8 space-y-0">
+              {outcomes.map((o, i) => (
+                <li
+                  key={o.title}
+                  className="grid grid-cols-[auto_1fr] gap-6 py-7 border-t"
+                  style={{ borderColor: softBorder }}
                 >
-                  <div
-                    className="inline-flex items-center justify-center w-10 h-10 rounded-full text-xs font-semibold text-background"
-                    style={{ background: "var(--svc-accent)" }}
-                  >
-                    {p.step}
+                  <div className="font-mono text-sm pt-1" style={{ color: "var(--svc-accent)" }}>
+                    {String(i + 1).padStart(2, "0")}
                   </div>
-                  <h3 className="mt-4 font-semibold">{p.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{p.desc}</p>
+                  <div>
+                    <h3 className="text-xl font-semibold">{o.title}</h3>
+                    <p className="mt-2 text-muted-foreground">{o.desc}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        {/* PROCESS — horizontal timeline */}
+        <section id="process" className="border-t" style={{ borderColor: softBorder }}>
+          <div className="mx-auto max-w-6xl px-4 py-24">
+            <div className="flex items-end justify-between flex-wrap gap-4 mb-12">
+              <div>
+                <div className="text-[11px] font-mono uppercase tracking-[0.3em] mb-4" style={{ color: "var(--svc-accent)" }}>
+                  02 — Process
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight max-w-2xl">
+                  How a {serviceName.toLowerCase()} engagement runs, week by week.
+                </h2>
+              </div>
+            </div>
+
+            <div className="relative grid md:grid-cols-4 gap-px" style={{ background: softBorder }}>
+              {process.map((p, i) => (
+                <div key={p.title} className="bg-background p-8 relative">
+                  <div className="flex items-center justify-between mb-6">
+                    <span className="font-mono text-sm" style={{ color: "var(--svc-accent)" }}>{p.step}</span>
+                    {i < process.length - 1 && (
+                      <ArrowRight size={14} className="hidden md:block text-muted-foreground" />
+                    )}
+                  </div>
+                  <h3 className="text-lg font-semibold">{p.title}</h3>
+                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
                 </div>
               ))}
             </div>
           </div>
-        </Section>
+        </section>
 
-        <Section className="py-12 sm:py-16">
-          <FAQ items={faqs} />
-        </Section>
-
-        <Section className="py-12 sm:py-16">
-          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center mb-8">Related services</h2>
-          <div className="grid sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
-            {related.map((r) => (
-              <Link
-                key={r.href}
-                to={r.href}
-                className="rounded-2xl p-5 border bg-background/40 hover:bg-background/60 transition flex items-center justify-between cursor-pointer"
-                style={{ borderColor: "color-mix(in oklab, var(--svc-accent) 18%, transparent)" }}
-              >
-                <span className="font-medium text-sm">{r.title}</span>
-                <ArrowRight size={14} style={{ color: "var(--svc-accent)" }} />
-              </Link>
-            ))}
+        {/* STACK — inline chip row */}
+        <section className="border-t" style={{ borderColor: softBorder }}>
+          <div className="mx-auto max-w-6xl px-4 py-20">
+            <div className="grid md:grid-cols-12 gap-10 items-start">
+              <div className="md:col-span-4">
+                <div className="text-[11px] font-mono uppercase tracking-[0.3em] mb-4" style={{ color: "var(--svc-accent)" }}>
+                  03 — Tools
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight">
+                  The stack we reach for.
+                </h2>
+                <p className="mt-4 text-muted-foreground text-sm">
+                  Boring tech where it should be, sharp tools where it matters.
+                </p>
+              </div>
+              <div className="md:col-span-8 flex flex-wrap gap-2">
+                {stack.map((s) => (
+                  <span
+                    key={s}
+                    className="rounded-full px-4 py-2 text-sm font-medium border"
+                    style={{
+                      borderColor: softBorder,
+                      color: "color-mix(in oklab, var(--svc-accent) 80%, var(--foreground))",
+                      background: softBg,
+                    }}
+                  >
+                    {s}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
-        </Section>
+        </section>
 
-        <Section>
-          <div
-            className="relative overflow-hidden rounded-3xl p-10 sm:p-14 text-center border bg-background/40"
-            style={{ borderColor: "color-mix(in oklab, var(--svc-accent) 25%, transparent)" }}
-          >
+        {/* FAQ — embedded on the service page */}
+        <section className="border-t" style={{ borderColor: softBorder }}>
+          <div className="mx-auto max-w-6xl px-4 py-24">
+            <div className="grid md:grid-cols-12 gap-10">
+              <div className="md:col-span-4">
+                <div className="md:sticky md:top-32">
+                  <div className="text-[11px] font-mono uppercase tracking-[0.3em] mb-4" style={{ color: "var(--svc-accent)" }}>
+                    04 — Questions
+                  </div>
+                  <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight">
+                    Frequently asked about {serviceName.toLowerCase()}.
+                  </h2>
+                  <p className="mt-4 text-muted-foreground text-sm">
+                    Specific to this service. Other questions? Just message us.
+                  </p>
+                </div>
+              </div>
+              <div className="md:col-span-8">
+                <FAQ items={faqs} title="" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* RELATED — minimal list */}
+        <section className="border-t" style={{ borderColor: softBorder }}>
+          <div className="mx-auto max-w-6xl px-4 py-20">
+            <div className="text-[11px] font-mono uppercase tracking-[0.3em] mb-8" style={{ color: "var(--svc-accent)" }}>
+              05 — Continue exploring
+            </div>
+            <div className="divide-y" style={{ borderColor: softBorder }}>
+              {related.map((r) => (
+                <Link
+                  key={r.href}
+                  to={r.href}
+                  className="flex items-center justify-between py-6 group cursor-pointer border-t first:border-t-0"
+                  style={{ borderColor: softBorder }}
+                >
+                  <span className="text-2xl sm:text-3xl font-semibold tracking-tight group-hover:opacity-70 transition">
+                    {r.title}
+                  </span>
+                  <ArrowUpRight
+                    size={28}
+                    className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1"
+                    style={{ color: "var(--svc-accent)" }}
+                  />
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="border-t" style={{ borderColor: softBorder }}>
+          <div className="mx-auto max-w-6xl px-4 py-24 text-center relative overflow-hidden">
             <div
-              className="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full blur-[120px] opacity-40"
+              className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[500px] rounded-full blur-[140px] opacity-30 pointer-events-none"
               style={{ background: "var(--svc-accent)" }}
             />
             <div className="relative">
-              <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight">
-                Ready to start your <span style={{ color: "var(--svc-accent)" }}>{serviceName.toLowerCase()}</span> project?
+              <h2 className="text-4xl sm:text-5xl font-semibold tracking-tight max-w-3xl mx-auto">
+                Let's build your <span style={{ color: "var(--svc-accent)" }}>{serviceName.toLowerCase()}</span> project together.
               </h2>
-              <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
-                Free 30‑minute strategy call. We'll map the fastest path from idea to launch.
+              <p className="mt-5 text-muted-foreground max-w-xl mx-auto">
+                Free 30-minute strategy call. No pitch, no pressure — just a clear path forward.
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-3">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium text-background hover:opacity-90 transition"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-background hover:opacity-90 transition"
                   style={{ background: "var(--svc-accent)" }}
                 >
                   Get a quote <ArrowRight size={16} />
                 </Link>
-                <Link to="/about" className="glass inline-flex items-center px-6 py-3 rounded-xl font-medium hover:bg-white/5 transition">
-                  About Jinada Tech
+                <Link
+                  to="/services"
+                  className="inline-flex items-center px-6 py-3 rounded-full font-medium border hover:bg-white/5 transition"
+                  style={{ borderColor: softBorder }}
+                >
+                  Back to services
                 </Link>
               </div>
             </div>
           </div>
-        </Section>
+        </section>
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }} />
-      </div>
+      </article>
     </Layout>
   );
 }
