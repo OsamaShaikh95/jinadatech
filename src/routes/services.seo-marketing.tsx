@@ -34,8 +34,15 @@ function Page() {
       slug={SLUG}
       icon={Search}
       eyebrow="SEO & Marketing"
-      h1={<>SEO and marketing that <span className="text-gradient-brand">drives real revenue</span></>}
+      h1={<>SEO and marketing that <span style={{ color: "#22C55E" }}>drives real revenue</span></>}
       intro="We grow your traffic, leads, and sales through technical SEO, content marketing, and social — built around the keywords and channels your customers actually use."
+      accent="#22C55E"
+      signature="Compounding traffic. Tracked revenue."
+      stats={[
+        { value: "3.5×", label: "Avg organic traffic lift" },
+        { value: "30+", label: "Keywords ranked / quarter" },
+        { value: "100%", label: "Reporting tied to revenue" },
+      ]}
       serviceName="SEO & Marketing"
       serviceDescription="Technical SEO audits, content marketing, link building, local SEO, and paid acquisition to grow qualified traffic and revenue."
       outcomes={[
