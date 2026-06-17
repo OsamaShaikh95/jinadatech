@@ -33,7 +33,7 @@ type HomeService = {
   title: string;
   subtitle: string;
   desc: string;
-  href?: "/services/website-development" | "/services/mobile-app-development" | "/services/seo-marketing" | "/services/ai-automation" | "/services";
+  href?: "/services/website-development" | "/services/mobile-app-development" | "/services/seo-marketing" | "/services/ai-automation" | "/services/complete-partnership" | "/services";
 };
 
 const services: HomeService[] = [
@@ -41,7 +41,7 @@ const services: HomeService[] = [
   { icon: Smartphone, title: "App Development", subtitle: "App Development & Growth", desc: "End-to-end mobile app development, deployment, and growth strategies that help businesses scale.", href: "/services/mobile-app-development" },
   { icon: Search, title: "SEO & Marketing", subtitle: "Traffic & Digital Growth", desc: "SEO, content marketing, and social media strategies designed to increase visibility, traffic, and conversions.", href: "/services/seo-marketing" },
   { icon: Brain, title: "AI & Automation", subtitle: "AI & Business Automation", desc: "Automate repetitive tasks, streamline operations, and boost productivity with custom AI-powered workflows.", href: "/services/ai-automation" },
-  { icon: Handshake, title: "Complete Partnership", subtitle: "Your All-In-One Digital Partner", desc: "From websites and apps to marketing, SEO, and automation—we handle your digital growth so you can focus on your business.", href: "/services" },
+  { icon: Handshake, title: "Complete Partnership", subtitle: "Your All-In-One Digital Partner", desc: "From websites and apps to marketing, SEO, and automation—we handle your digital growth so you can focus on your business.", href: "/services/complete-partnership" },
 ];
 
 
