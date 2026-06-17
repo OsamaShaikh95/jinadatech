@@ -79,7 +79,7 @@ export function Nav() {
                   onMouseLeave={scheduleClose}
                   role="menu"
                 >
-                  <div className="glass-strong rounded-2xl p-2 border border-border shadow-xl">
+                  <div className="bg-popover rounded-2xl p-2 border border-border shadow-2xl">
                     {serviceLinks.map((s) => (
                       <Link
                         key={s.to}
