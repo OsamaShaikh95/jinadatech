@@ -14,12 +14,19 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "We partner with startups and businesses to create fast, modern software that delivers real business results." },
       { property: "og:title", content: "Jinada Tech — Websites • Apps • AI Automation" },
       { property: "og:description", content: "We partner with startups and businesses to create fast, modern software that delivers real business results." },
-      { property: "og:url", content: "/" },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://jinadatech.com/" },
+      { property: "og:image", content: "https://jinadatech.com/jinada-mark.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Jinada Tech — Websites • Apps • AI Automation" },
+      { name: "twitter:description", content: "We partner with startups and businesses to create fast, modern software that delivers real business results." },
+      { name: "twitter:image", content: "https://jinadatech.com/jinada-mark.png" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://jinadatech.com/" }],
   }),
   component: Home,
 });
+
 
 const services = [
   { icon: Code2, title: "Website Development", subtitle: "Website Build & Launch", desc: "We design custom websites to attract customers, showcase your brand and convert visitors into leads." },
