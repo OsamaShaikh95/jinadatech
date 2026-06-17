@@ -35,7 +35,7 @@ type ServiceCard = {
   subtitle: string;
   desc: string;
   points: string[];
-  href?: "/services/website-development" | "/services/mobile-app-development" | "/services/seo-marketing" | "/services/ai-automation";
+  href?: "/services/website-development" | "/services/mobile-app-development" | "/services/seo-marketing" | "/services/ai-automation" | "/services/complete-partnership";
 };
 
 const services: ServiceCard[] = [
@@ -43,7 +43,7 @@ const services: ServiceCard[] = [
   { icon: Smartphone, title: "App Development", subtitle: "App Development & Growth", desc: "End-to-end mobile app development, deployment, and growth strategies that help businesses scale.", points: ["iOS & Android", "React Native / Expo", "App Store launch", "Post-launch growth"], href: "/services/mobile-app-development" },
   { icon: Search, title: "SEO & Marketing", subtitle: "Traffic & Digital Growth", desc: "SEO, content marketing, and social media strategies designed to increase visibility, traffic, and conversions.", points: ["Technical SEO audits", "Content & link building", "Social media management", "Paid acquisition"], href: "/services/seo-marketing" },
   { icon: Brain, title: "AI & Automation", subtitle: "AI & Business Automation", desc: "Automate repetitive tasks, streamline operations, and boost productivity with custom AI-powered workflows.", points: ["Custom AI agents", "RAG & vector search", "Workflow automation", "Internal copilots"], href: "/services/ai-automation" },
-  { icon: Handshake, title: "Complete Partnership", subtitle: "Your All-In-One Digital Partner", desc: "From websites and apps to marketing, SEO, and automation—we handle your digital growth so you can focus on your business.", points: ["Dedicated senior team", "Strategy & roadmap", "Ongoing iteration", "24/7 support"] },
+  { icon: Handshake, title: "Complete Partnership", subtitle: "Your All-In-One Digital Partner", desc: "From websites and apps to marketing, SEO, and automation—we handle your digital growth so you can focus on your business.", points: ["Dedicated senior team", "Strategy & roadmap", "Ongoing iteration", "24/7 support"], href: "/services/complete-partnership" },
 ];
 
 function Services() {
