@@ -34,8 +34,15 @@ function Page() {
       slug={SLUG}
       icon={Brain}
       eyebrow="AI & Automation"
-      h1={<>AI automation that <span className="text-gradient-brand">saves hours</span> every week</>}
+      h1={<>AI automation that <span style={{ color: "#F59E0B" }}>saves hours</span> every week</>}
       intro="We build custom AI agents, RAG systems, and workflow automations that plug into your existing tools — so your team spends time on what matters, not on busywork."
+      accent="#F59E0B"
+      signature="Quiet automations. Loud results."
+      stats={[
+        { value: "20+ hrs", label: "Saved per team / week" },
+        { value: "<5 wks", label: "First pilot in production" },
+        { value: "24/7", label: "Always-on agents" },
+      ]}
       serviceName="AI & Automation"
       serviceDescription="Custom AI agents, RAG and vector search, workflow automation, and internal copilots integrated with your existing tools and data."
       outcomes={[
