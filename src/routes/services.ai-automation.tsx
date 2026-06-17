@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Bot, MessageSquare, Workflow, Plug, BrainCircuit, Target, Cog } from "lucide-react";
-import { ServicePage } from "@/components/site/ServicePage";
+import { AiAutomationLayout } from "@/components/site/service-layouts/AiAutomationLayout";
 
 const SITE = "https://jinadatech.com";
 const SLUG = "ai-automation";
@@ -30,7 +30,7 @@ export const Route = createFileRoute("/services/ai-automation")({
 
 function Page() {
   return (
-    <ServicePage
+    <AiAutomationLayout
       slug={SLUG}
       icon={Bot}
       eyebrow="AI & Automation"

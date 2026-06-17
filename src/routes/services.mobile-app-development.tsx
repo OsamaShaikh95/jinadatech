@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Smartphone, Apple, Bot, Layers, Rocket, LifeBuoy } from "lucide-react";
-import { ServicePage } from "@/components/site/ServicePage";
+import { MobileAppLayout } from "@/components/site/service-layouts/MobileAppLayout";
 
 const SITE = "https://jinadatech.com";
 const SLUG = "mobile-app-development";
@@ -30,7 +30,7 @@ export const Route = createFileRoute("/services/mobile-app-development")({
 
 function Page() {
   return (
-    <ServicePage
+    <MobileAppLayout
       slug={SLUG}
       icon={Smartphone}
       eyebrow="Mobile App Development"

@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { TrendingUp, Search, FileText, Share2, MousePointerClick, LineChart, Wrench } from "lucide-react";
-import { ServicePage } from "@/components/site/ServicePage";
+import { SeoMarketingLayout } from "@/components/site/service-layouts/SeoMarketingLayout";
 
 const SITE = "https://jinadatech.com";
 const SLUG = "seo-marketing";
@@ -30,7 +30,7 @@ export const Route = createFileRoute("/services/seo-marketing")({
 
 function Page() {
   return (
-    <ServicePage
+    <SeoMarketingLayout
       slug={SLUG}
       icon={TrendingUp}
       eyebrow="SEO & Marketing"
