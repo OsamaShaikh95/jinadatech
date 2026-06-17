@@ -109,8 +109,20 @@ function Services() {
                 )}
               </div>
             );
+            const isCurrent = s.href === pathname;
             return s.href ? (
-              <Link key={s.title} to={s.href} className="block cursor-pointer">
+              <Link
+                key={s.title}
+                to={s.href}
+                className="block cursor-pointer"
+                onClick={(e) => {
+                  if (isCurrent) {
+                    e.preventDefault();
+                    console.warn(`[services] Skipped reload — already on ${s.href}`);
+                  }
+                }}
+                aria-disabled={isCurrent || undefined}
+              >
                 {Card}
               </Link>
             ) : (
