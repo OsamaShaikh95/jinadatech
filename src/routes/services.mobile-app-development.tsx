@@ -34,8 +34,15 @@ function Page() {
       slug={SLUG}
       icon={Smartphone}
       eyebrow="Mobile App Development"
-      h1={<>Mobile apps that <span className="text-gradient-brand">launch fast</span> and scale</>}
+      h1={<>Mobile apps that <span style={{ color: "#7C5CFF" }}>launch fast</span> and scale</>}
       intro="We design, build, and ship iOS and Android apps end-to-end. From MVP to growth — including App Store and Play Store submission, analytics, and post-launch iteration."
+      accent="#7C5CFF"
+      signature="From idea to App Store in weeks."
+      stats={[
+        { value: "8–12 wks", label: "MVP to first install" },
+        { value: "1 codebase", label: "iOS + Android" },
+        { value: "4.8★", label: "Avg post-launch rating" },
+      ]}
       serviceName="Mobile App Development"
       serviceDescription="iOS and Android app development with React Native and native stacks, App Store and Play Store launch, and post-launch growth."
       outcomes={[

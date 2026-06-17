@@ -9,6 +9,7 @@ const serviceLinks = [
   { to: "/services/mobile-app-development", label: "Mobile App Development", desc: "iOS, Android, React Native" },
   { to: "/services/seo-marketing", label: "SEO & Marketing", desc: "Traffic, content, paid ads" },
   { to: "/services/ai-automation", label: "AI & Automation", desc: "Agents, RAG, workflows" },
+  { to: "/services/complete-partnership", label: "Complete Partnership", desc: "Your all‑in‑one digital team" },
 ] as const;
 
 const links = [
@@ -79,7 +80,7 @@ export function Nav() {
                   onMouseLeave={scheduleClose}
                   role="menu"
                 >
-                  <div className="glass-strong rounded-2xl p-2 border border-border shadow-xl">
+                  <div className="bg-popover rounded-2xl p-2 border border-border shadow-2xl">
                     {serviceLinks.map((s) => (
                       <Link
                         key={s.to}

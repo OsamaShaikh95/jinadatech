@@ -29,7 +29,7 @@ export const Route = createFileRoute("/faq")({
   component: FAQPage,
 });
 
-const groups: { title: string; href: "/services/website-development" | "/services/mobile-app-development" | "/services/seo-marketing" | "/services/ai-automation"; items: FAQItem[] }[] = [
+const groups: { title: string; href: "/services/website-development" | "/services/mobile-app-development" | "/services/seo-marketing" | "/services/ai-automation" | "/services/complete-partnership"; items: FAQItem[] }[] = [
   {
     title: "Website Development",
     href: "/services/website-development",
@@ -76,6 +76,18 @@ const groups: { title: string; href: "/services/website-development" | "/service
       { q: "Can the AI use my company's documents and data?", a: "Yes — that's what RAG (retrieval-augmented generation) is for. We ingest your docs, knowledge base, or database and let the AI answer with cited sources from your data." },
       { q: "What does AI automation cost?", a: "Most projects start at $5k–$15k for a working pilot. Production rollouts and ongoing improvement typically run on a monthly retainer. We share a fixed quote after a free discovery call." },
       { q: "How do you measure success?", a: "Hours saved per week, tickets deflected, leads qualified, revenue influenced — whatever metric maps to real business outcomes for your team." },
+    ],
+  },
+  {
+    title: "Complete Partnership",
+    href: "/services/complete-partnership",
+    items: [
+      { q: "How is this different from hiring an agency?", a: "Agencies typically silo design, dev, and marketing across separate teams who never talk. Our partnership is one senior team working across every discipline — so your website, app, content and automations all move together." },
+      { q: "Do we get dedicated people, or a rotating roster?", a: "Dedicated. You get a named lead plus a fixed pod across the disciplines you need. The same humans every week — no junior handoffs and no surprise replacements." },
+      { q: "What does a partnership cost?", a: "Most partnerships run between $8k–$25k per month depending on scope and seniority. We size the pod to your goals and lock the price in a flat monthly retainer — no surprise invoices." },
+      { q: "Can we start small and scale up?", a: "Yes. Many clients start with one discipline (e.g. website + SEO) and add mobile or AI as they grow. We adjust the pod each quarter based on your roadmap." },
+      { q: "How long is the commitment?", a: "We ask for a 3‑month initial term so we can hit real outcomes. After that it's month‑to‑month — you can pause, scale, or end with 30 days' notice." },
+      { q: "Do you replace our internal team?", a: "We augment, not replace. We work alongside your in-house team — sharing tools, code, and Notion docs — so capability stays with you." },
     ],
   },
 ];

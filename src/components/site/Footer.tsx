@@ -20,6 +20,7 @@ export function Footer() {
             <li><Link to="/services/mobile-app-development" className="hover:text-foreground">Mobile App Development</Link></li>
             <li><Link to="/services/seo-marketing" className="hover:text-foreground">SEO &amp; Marketing</Link></li>
             <li><Link to="/services/ai-automation" className="hover:text-foreground">AI &amp; Automation</Link></li>
+            <li><Link to="/services/complete-partnership" className="hover:text-foreground">Complete Partnership</Link></li>
           </ul>
         </div>
         <div>
