@@ -29,7 +29,7 @@ export const Route = createFileRoute("/faq")({
   component: FAQPage,
 });
 
-const groups: { title: string; href: "/services/website-development" | "/services/mobile-app-development" | "/services/seo-marketing" | "/services/ai-automation"; items: FAQItem[] }[] = [
+const groups: { title: string; href: "/services/website-development" | "/services/mobile-app-development" | "/services/seo-marketing" | "/services/ai-automation" | "/services/complete-partnership"; items: FAQItem[] }[] = [
   {
     title: "Website Development",
     href: "/services/website-development",
