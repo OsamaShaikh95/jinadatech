@@ -1,213 +1,189 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight, Check, X } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Apple, Smartphone, Check, Download, Star } from "lucide-react";
 import { Layout } from "../Layout";
 import { Breadcrumbs } from "../Breadcrumbs";
 import { FAQ } from "../FAQ";
 import { type ServicePageData, buildServiceLd, buildFaqLd } from "./types";
 
 /**
- * MobileAppLayout
- * Startup mobile-app agency vibe.
- * Centered hero with arc of phone mockups, vertical storytelling rows,
- * phone-shaped deliverable cards, iOS vs Android vs RN comparison table,
- * vertical launch timeline, FAQ.
+ * MOBILE APP DEVELOPMENT
+ * Sections:
+ *   1. Hero
+ *   2. Phone Mockups (trio arc)
+ *   3. App Screens Carousel (horizontal scroll)
+ *   4. iOS vs Android Comparison
+ *   5. Development Roadmap (vertical zigzag)
+ *   6. Launch & App Store Section
+ *   7. FAQ
+ *   8. CTA
  */
+
+const PLATFORM_MATRIX = [
+  { row: "Language", ios: "Swift / SwiftUI", android: "Kotlin / Compose", cross: "TypeScript / React Native" },
+  { row: "Performance", ios: "Native", android: "Native", cross: "Near-native" },
+  { row: "Time to market", ios: "Slowest", android: "Slowest", cross: "Fastest" },
+  { row: "Code reuse", ios: "0%", android: "0%", cross: "~90%" },
+  { row: "Best for", ios: "Premium / hardware-heavy", android: "Mass market / Asia", cross: "Most products" },
+];
+
 export function MobileAppLayout(d: ServicePageData) {
   const accent = d.accent;
   const soft = `color-mix(in oklab, ${accent} 22%, transparent)`;
-  const softBg = `color-mix(in oklab, ${accent} 8%, transparent)`;
+  const softBg = `color-mix(in oklab, ${accent} 10%, transparent)`;
   const style = { ["--svc-accent" as any]: accent } as React.CSSProperties;
-
-  const platforms = [
-    { name: "iOS", desc: "Native Swift / SwiftUI" },
-    { name: "Android", desc: "Native Kotlin / Compose" },
-    { name: "React Native", desc: "One codebase, two stores" },
-  ];
-  const matrix = [
-    { row: "App Store + Play Store launch", v: [true, true, true] },
-    { row: "Native UI performance", v: [true, true, false] },
-    { row: "Single codebase", v: [false, false, true] },
-    { row: "Fastest time to market", v: [false, false, true] },
-    { row: "Deep OS integrations", v: [true, true, false] },
-    { row: "Push notifications & payments", v: [true, true, true] },
-  ];
 
   return (
     <Layout>
       <article style={style} className="relative">
         <div className="absolute top-0 inset-x-0 h-px" style={{ background: `linear-gradient(90deg, transparent, ${accent}, transparent)` }} />
 
-        {/* HERO — centered with phone arc below */}
-        <header className="relative pt-24 pb-12 overflow-hidden">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] rounded-full blur-[160px] opacity-30 pointer-events-none" style={{ background: accent }} />
-          <div className="mx-auto max-w-5xl px-4 text-center relative">
-            <div className="flex justify-center"><Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Services", href: "/services" }, { label: d.serviceName, href: `/services/${d.slug}` }]} /></div>
-            <div className="text-[11px] font-mono uppercase tracking-[0.3em] mt-4" style={{ color: accent }}>{d.eyebrow}</div>
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tight leading-[0.95] mt-6 max-w-4xl mx-auto">{d.h1}</h1>
-            <p className="mt-6 text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">{d.intro}</p>
-            <div className="mt-8 flex flex-wrap gap-3 justify-center">
-              <Link to="/contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-background hover:opacity-90 transition cursor-pointer" style={{ background: accent }}>Start a Project <ArrowRight size={16} /></Link>
-              <Link to="/contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium border hover:bg-white/5 transition cursor-pointer" style={{ borderColor: soft }}>Schedule a Consultation</Link>
-            </div>
-          </div>
+        {/* 1. HERO + 2. PHONE MOCKUPS */}
+        <header className="relative pt-24 pb-32 overflow-hidden">
+          <div className="absolute -top-40 right-0 w-[600px] h-[600px] rounded-full blur-[160px] opacity-25 pointer-events-none" style={{ background: accent }} />
+          <div className="mx-auto max-w-7xl px-4 relative">
+            <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Services", href: "/services" }, { label: d.serviceName, href: `/services/${d.slug}` }]} />
+            <div className="grid lg:grid-cols-[1fr_1.1fr] gap-16 items-center mt-8">
+              <div>
+                <div className="text-[11px] font-mono uppercase tracking-[0.3em] mb-6" style={{ color: accent }}>{d.eyebrow}</div>
+                <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tight leading-[0.95]">{d.h1}</h1>
+                <p className="mt-6 text-lg text-muted-foreground max-w-xl">{d.intro}</p>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <Link to="/contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-background hover:opacity-90 transition cursor-pointer" style={{ background: accent }}>Start a Project <ArrowRight size={16} /></Link>
+                  <Link to="/contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium border hover:bg-white/5 transition cursor-pointer" style={{ borderColor: soft }}>Book a Demo</Link>
+                </div>
+                <div className="mt-10 flex items-center gap-6">
+                  <div className="flex items-center gap-2 text-sm"><Apple size={18} /> iOS</div>
+                  <div className="flex items-center gap-2 text-sm"><Smartphone size={18} /> Android</div>
+                  <div className="flex items-center gap-2 text-sm" style={{ color: accent }}><span className="w-2 h-2 rounded-full" style={{ background: accent }} /> React Native</div>
+                </div>
+              </div>
 
-          {/* Arc of phones */}
-          <div className="relative mt-16 h-[420px] sm:h-[480px]">
-            <div className="absolute left-1/2 -translate-x-1/2 flex items-end gap-4 sm:gap-8">
-              <PhoneMockup accent={accent} variant="left" label={d.stats[0]?.value} sub={d.stats[0]?.label} />
-              <PhoneMockup accent={accent} variant="center" label={d.stats[1]?.value} sub={d.stats[1]?.label} />
-              <PhoneMockup accent={accent} variant="right" label={d.stats[2]?.value} sub={d.stats[2]?.label} />
+              {/* Phone trio */}
+              <div className="relative h-[540px] hidden lg:block">
+                <Phone accent={accent} className="absolute left-0 top-10 -rotate-12" />
+                <Phone accent={accent} className="absolute left-1/2 -translate-x-1/2 top-0 z-10 scale-110" featured />
+                <Phone accent={accent} className="absolute right-0 top-10 rotate-12" />
+              </div>
             </div>
           </div>
         </header>
 
-        {/* OVERVIEW — vertical storytelling, phone on alternating side */}
-        <section className="border-t" style={{ borderColor: soft }}>
-          <div className="mx-auto max-w-6xl px-4 py-24 space-y-24">
-            {[
-              { label: "What's included", body: d.overview.includes, side: "left" as const },
-              { label: "Who it's for", body: d.overview.audience, side: "right" as const },
-              { label: "Problems it solves", body: d.overview.solves, side: "left" as const },
-            ].map((b, i) => (
-              <div key={b.label} className={`grid md:grid-cols-[260px_1fr] gap-12 items-center ${b.side === "right" ? "md:[direction:rtl]" : ""}`}>
-                <div className="flex justify-center [direction:ltr]">
-                  <MiniPhone accent={accent} index={i + 1} />
-                </div>
-                <div className="[direction:ltr]">
-                  <div className="text-[10px] font-mono uppercase tracking-[0.3em] mb-3" style={{ color: accent }}>chapter 0{i + 1} — {b.label}</div>
-                  <p className="text-2xl leading-snug font-medium text-foreground/90">{b.body}</p>
-                </div>
+        {/* 3. APP SCREENS CAROUSEL */}
+        <section className="border-y" style={{ borderColor: soft, background: softBg }}>
+          <div className="mx-auto max-w-7xl px-4 py-20">
+            <div className="flex items-end justify-between flex-wrap gap-4 mb-10">
+              <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight max-w-xl">Crafted screen by screen.</h2>
+              <p className="text-sm text-muted-foreground">Swipe to explore deliverables →</p>
+            </div>
+          </div>
+          <div className="overflow-x-auto pb-16 -mt-6">
+            <div className="flex gap-6 px-4 lg:px-12 snap-x snap-mandatory" style={{ width: "max-content" }}>
+              {d.included.map((item, i) => (
+                <ScreenCard key={item.title} accent={accent} index={i + 1} total={d.included.length} title={item.title} desc={item.desc} />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* 4. iOS vs ANDROID COMPARISON */}
+        <section className="mx-auto max-w-7xl px-4 py-24">
+          <div className="max-w-2xl mb-12">
+            <div className="text-[10px] font-mono uppercase tracking-[0.3em] mb-3" style={{ color: accent }}>Platform Strategy</div>
+            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight">iOS, Android, or both?</h2>
+            <p className="mt-4 text-muted-foreground">Three honest paths — we'll recommend the one that fits your audience, budget, and timeline.</p>
+          </div>
+          <div className="rounded-2xl border overflow-hidden" style={{ borderColor: soft }}>
+            <div className="grid grid-cols-4 text-sm font-mono uppercase tracking-wider text-xs" style={{ background: softBg }}>
+              <div className="p-4 border-r" style={{ borderColor: soft }}>Dimension</div>
+              <div className="p-4 border-r flex items-center gap-2" style={{ borderColor: soft }}><Apple size={14} /> iOS Native</div>
+              <div className="p-4 border-r flex items-center gap-2" style={{ borderColor: soft }}><Smartphone size={14} /> Android Native</div>
+              <div className="p-4 flex items-center gap-2" style={{ color: accent }}><span className="w-2 h-2 rounded-full" style={{ background: accent }} /> React Native</div>
+            </div>
+            {PLATFORM_MATRIX.map((r, i) => (
+              <div key={r.row} className={`grid grid-cols-4 text-sm border-t`} style={{ borderColor: soft, background: i % 2 ? "transparent" : softBg }}>
+                <div className="p-4 border-r font-medium" style={{ borderColor: soft }}>{r.row}</div>
+                <div className="p-4 border-r text-muted-foreground" style={{ borderColor: soft }}>{r.ios}</div>
+                <div className="p-4 border-r text-muted-foreground" style={{ borderColor: soft }}>{r.android}</div>
+                <div className="p-4" style={{ color: accent }}>{r.cross}</div>
               </div>
             ))}
           </div>
         </section>
 
-        {/* APP FEATURES — phone-shaped cards */}
+        {/* 5. DEVELOPMENT ROADMAP — zigzag */}
         <section className="border-t" style={{ borderColor: soft, background: softBg }}>
-          <div className="mx-auto max-w-7xl px-4 py-24">
-            <div className="text-center mb-14">
-              <h2 className="text-4xl sm:text-5xl font-semibold tracking-tight">Inside every app we ship.</h2>
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
-              {d.included.map((item, i) => {
-                const Icon = item.icon!;
-                return (
-                  <div key={item.title} className="rounded-[2rem] border bg-card/60 backdrop-blur p-5 aspect-[9/16] flex flex-col" style={{ borderColor: soft }}>
-                    <div className="mx-auto w-16 h-1.5 rounded-full bg-foreground/10 mb-4" />
-                    <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg mb-3" style={{ background: softBg, color: accent }}>
-                      <Icon size={18} />
-                    </div>
-                    <div className="text-[10px] font-mono" style={{ color: accent }}>0{i + 1}</div>
-                    <h3 className="text-sm font-semibold mt-1 leading-tight">{item.title}</h3>
-                    <p className="mt-2 text-[11px] text-muted-foreground leading-relaxed line-clamp-5">{item.desc}</p>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* PLATFORM COMPARISON */}
-        <section className="border-t" style={{ borderColor: soft }}>
-          <div className="mx-auto max-w-6xl px-4 py-24">
-            <div className="max-w-2xl mb-10">
-              <div className="text-[11px] font-mono uppercase tracking-[0.3em] mb-3" style={{ color: accent }}>Platform comparison</div>
-              <h2 className="text-4xl sm:text-5xl font-semibold tracking-tight">Pick the right stack for your product.</h2>
-            </div>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm border rounded-xl overflow-hidden" style={{ borderColor: soft }}>
-                <thead>
-                  <tr style={{ background: softBg }}>
-                    <th className="text-left p-4 font-medium text-muted-foreground"> </th>
-                    {platforms.map((p) => (
-                      <th key={p.name} className="text-left p-4">
-                        <div className="font-semibold" style={{ color: accent }}>{p.name}</div>
-                        <div className="text-[11px] text-muted-foreground font-normal mt-1">{p.desc}</div>
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {matrix.map((m, idx) => (
-                    <tr key={m.row} className="border-t" style={{ borderColor: soft }}>
-                      <td className="p-4 text-foreground/85">{m.row}</td>
-                      {m.v.map((v, i) => (
-                        <td key={i} className="p-4">
-                          {v ? <Check size={18} style={{ color: accent }} /> : <X size={18} className="text-muted-foreground/50" />}
-                        </td>
-                      ))}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </section>
-
-        {/* BENEFITS — full-width compact rows */}
-        <section className="border-t" style={{ borderColor: soft, background: softBg }}>
-          <div className="mx-auto max-w-6xl px-4 py-24">
-            <h2 className="text-4xl sm:text-5xl font-semibold tracking-tight mb-12 max-w-2xl">Why founders ship mobile.</h2>
-            <ul className="divide-y" style={{}}>
-              {d.benefits.map((b, i) => (
-                <li key={b.title} className="grid md:grid-cols-[100px_280px_1fr] gap-6 py-6 border-t" style={{ borderColor: soft }}>
-                  <div className="font-mono text-sm" style={{ color: accent }}>0{i + 1}</div>
-                  <div className="font-semibold text-lg">{b.title}</div>
-                  <div className="text-muted-foreground">{b.desc}</div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        {/* LAUNCH PROCESS — vertical timeline */}
-        <section className="border-t" style={{ borderColor: soft }}>
-          <div className="mx-auto max-w-3xl px-4 py-24">
-            <h2 className="text-4xl sm:text-5xl font-semibold tracking-tight mb-12 text-center">From idea to App Store.</h2>
-            <ol className="relative border-l-2 pl-8 space-y-10" style={{ borderColor: soft }}>
+          <div className="mx-auto max-w-5xl px-4 py-24">
+            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight mb-16 text-center">Your roadmap to launch.</h2>
+            <div className="space-y-10">
               {d.process.map((p, i) => (
-                <li key={p.title} className="relative">
-                  <span className="absolute -left-[2.4rem] top-1 w-6 h-6 rounded-full grid place-items-center text-[11px] font-mono text-background" style={{ background: accent }}>
-                    {i + 1}
-                  </span>
-                  <div className="text-[10px] font-mono uppercase tracking-[0.3em] mb-1" style={{ color: accent }}>{p.step}</div>
-                  <h3 className="text-xl font-semibold">{p.title}</h3>
-                  <p className="mt-2 text-muted-foreground">{p.desc}</p>
-                </li>
+                <div key={p.title} className={`flex gap-6 items-start ${i % 2 ? "flex-row-reverse text-right" : ""}`}>
+                  <div className="flex-shrink-0 w-16 h-16 rounded-2xl border-2 grid place-items-center font-mono text-sm" style={{ borderColor: accent, color: accent }}>{p.step}</div>
+                  <div className={`flex-1 rounded-2xl border p-6 ${i % 2 ? "" : ""}`} style={{ borderColor: soft, background: "rgba(255,255,255,0.02)" }}>
+                    <h3 className="text-lg font-semibold">{p.title}</h3>
+                    <p className="mt-2 text-muted-foreground">{p.desc}</p>
+                  </div>
+                </div>
               ))}
-            </ol>
+            </div>
           </div>
         </section>
 
-        {/* FAQ */}
+        {/* 6. LAUNCH & APP STORE */}
+        <section className="border-t" style={{ borderColor: soft }}>
+          <div className="mx-auto max-w-7xl px-4 py-24 grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="text-[10px] font-mono uppercase tracking-[0.3em] mb-3" style={{ color: accent }}>Launch Day</div>
+              <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight">From TestFlight to Top Charts.</h2>
+              <p className="mt-4 text-muted-foreground max-w-lg">We handle the full submission process — App Store Connect, Google Play Console, ASO copy, screenshots, review responses, and post-launch updates.</p>
+              <ul className="mt-8 space-y-3">
+                {d.benefits.slice(0, 5).map((b) => (
+                  <li key={b.title} className="flex gap-3 items-start">
+                    <Check size={18} className="flex-shrink-0 mt-0.5" style={{ color: accent }} />
+                    <div>
+                      <div className="font-medium">{b.title}</div>
+                      <div className="text-sm text-muted-foreground">{b.desc}</div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="grid sm:grid-cols-2 gap-4">
+              <StoreCard accent={accent} icon={<Apple size={22} />} store="App Store" rating="4.8" reviews="2.3k" />
+              <StoreCard accent={accent} icon={<Smartphone size={22} />} store="Google Play" rating="4.7" reviews="5.1k" />
+              <div className="sm:col-span-2 rounded-2xl border p-6" style={{ borderColor: soft, background: softBg }}>
+                <div className="flex items-center gap-3 mb-3">
+                  <Download size={20} style={{ color: accent }} />
+                  <div className="font-semibold">Post-launch support included</div>
+                </div>
+                <p className="text-sm text-muted-foreground">OS updates, crash monitoring, analytics dashboards, and quarterly feature releases.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 7. FAQ */}
         <section className="border-t" style={{ borderColor: soft, background: softBg }}>
           <div className="mx-auto max-w-4xl px-4 py-24">
-            <h2 className="text-4xl sm:text-5xl font-semibold tracking-tight mb-10 text-center">Frequently asked.</h2>
+            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight mb-10 text-center">Frequently asked.</h2>
             <FAQ items={d.faqs} title="" />
           </div>
         </section>
 
-        {/* RELATED */}
-        <section className="border-t" style={{ borderColor: soft }}>
-          <div className="mx-auto max-w-6xl px-4 py-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {d.related.map((r) => (
-              <Link key={r.href} to={r.href} className="group rounded-2xl border p-5 hover:bg-white/5 transition cursor-pointer flex items-center justify-between" style={{ borderColor: soft }}>
-                <span className="font-medium">{r.title}</span>
-                <ArrowUpRight size={16} className="opacity-50 group-hover:opacity-100 transition" style={{ color: accent }} />
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        {/* FINAL CTA */}
+        {/* 8. CTA */}
         <section className="border-t relative overflow-hidden" style={{ borderColor: soft }}>
-          <div className="absolute inset-0 opacity-30 pointer-events-none" style={{ background: `radial-gradient(circle at 50% 0%, ${accent}, transparent 60%)` }} />
+          <div className="absolute inset-0 opacity-30 pointer-events-none" style={{ background: `radial-gradient(circle at 50% 100%, ${accent}, transparent 60%)` }} />
           <div className="mx-auto max-w-3xl px-4 py-24 text-center relative">
-            <h2 className="text-4xl sm:text-5xl font-semibold tracking-tight">Ready to grow your business?</h2>
-            <p className="mt-5 text-muted-foreground">Let's discuss your goals and build the right solution together.</p>
+            <h2 className="text-4xl sm:text-5xl font-semibold tracking-tight">Have a mobile app idea?</h2>
             <Link to="/contact" className="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-background hover:opacity-90 transition cursor-pointer" style={{ background: accent }}>
               Schedule a Free Consultation <ArrowRight size={16} />
             </Link>
+            <div className="mt-10 flex flex-wrap gap-2 justify-center">
+              {d.related.map((r) => (
+                <Link key={r.href} to={r.href} className="inline-flex items-center gap-2 px-4 py-2 rounded-full border text-sm hover:bg-white/5 transition cursor-pointer" style={{ borderColor: soft }}>
+                  {r.title} <ArrowUpRight size={12} />
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -218,56 +194,65 @@ export function MobileAppLayout(d: ServicePageData) {
   );
 }
 
-function PhoneMockup({ accent, variant, label, sub }: { accent: string; variant: "left" | "center" | "right"; label?: string; sub?: string }) {
+function Phone({ accent, className = "", featured = false }: { accent: string; className?: string; featured?: boolean }) {
   const soft = `color-mix(in oklab, ${accent} 22%, transparent)`;
-  const softBg = `color-mix(in oklab, ${accent} 12%, transparent)`;
-  const rotate = variant === "left" ? "-rotate-6 translate-y-8" : variant === "right" ? "rotate-6 translate-y-8" : "z-10 scale-110";
+  const softBg = `color-mix(in oklab, ${accent} 10%, transparent)`;
   return (
-    <div className={`relative transform ${rotate} transition`}>
-      <div className="absolute -inset-6 rounded-[3rem] blur-3xl opacity-40 pointer-events-none" style={{ background: accent }} />
-      <div className="relative w-[180px] sm:w-[210px] aspect-[9/19] rounded-[2.4rem] border-[6px] border-foreground/15 bg-background shadow-2xl overflow-hidden" style={{}}>
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 mt-2 w-16 h-4 bg-foreground/80 rounded-full" />
-        <div className="h-full p-4 flex flex-col" style={{ background: `linear-gradient(180deg, ${softBg}, transparent 60%)` }}>
-          <div className="mt-8 flex items-center justify-between text-[10px] font-mono text-muted-foreground">
-            <span>9:41</span>
-            <span style={{ color: accent }}>● ● ●</span>
-          </div>
-          <div className="mt-6 flex-1 flex flex-col items-center justify-center text-center">
-            <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl mb-3" style={{ background: accent }}>
-              <span className="text-background font-bold">J</span>
-            </div>
-            {label && <div className="text-2xl font-semibold tabular-nums" style={{ color: accent }}>{label}</div>}
-            {sub && <div className="text-[10px] uppercase tracking-widest text-muted-foreground mt-1 px-2 leading-tight">{sub}</div>}
-          </div>
-          <div className="space-y-1.5 mb-2">
-            <div className="h-1.5 rounded-full bg-foreground/10" />
-            <div className="h-1.5 rounded-full bg-foreground/10 w-2/3" />
-          </div>
+    <div className={`w-[220px] h-[440px] rounded-[3rem] border-[10px] border-foreground/80 bg-background overflow-hidden shadow-2xl ${className}`}>
+      <div className="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-5 rounded-full bg-foreground/80 z-10" />
+      <div className="w-full h-full p-4 flex flex-col gap-3" style={{ background: `linear-gradient(180deg, ${softBg}, transparent)` }}>
+        <div className="h-2 w-12 rounded-full bg-foreground/30 mt-3" />
+        <div className="h-5 w-28 rounded-md bg-foreground/40" />
+        <div className="grid grid-cols-2 gap-2 mt-2">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <div key={i} className="aspect-square rounded-xl border" style={{ borderColor: soft, background: featured && i === 2 ? accent : softBg }} />
+          ))}
         </div>
+        <div className="mt-auto h-10 rounded-xl flex items-center justify-center text-[10px] font-medium text-background" style={{ background: accent }}>Get Started</div>
       </div>
     </div>
   );
 }
 
-function MiniPhone({ accent, index }: { accent: string; index: number }) {
+function ScreenCard({ accent, index, total, title, desc }: { accent: string; index: number; total: number; title: string; desc: string }) {
   const soft = `color-mix(in oklab, ${accent} 22%, transparent)`;
-  const softBg = `color-mix(in oklab, ${accent} 12%, transparent)`;
+  const softBg = `color-mix(in oklab, ${accent} 10%, transparent)`;
   return (
-    <div className="relative w-[200px] aspect-[9/18] rounded-[2.2rem] border-[5px] border-foreground/15 bg-background overflow-hidden">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 mt-2 w-14 h-3.5 bg-foreground/80 rounded-full" />
-      <div className="h-full pt-10 px-4 pb-4 flex flex-col" style={{ background: `linear-gradient(180deg, ${softBg}, transparent)` }}>
-        <div className="text-[9px] font-mono" style={{ color: accent }}>screen / 0{index}</div>
-        <div className="mt-3 space-y-1.5">
-          <div className="h-2 rounded bg-foreground/15 w-3/4" />
-          <div className="h-2 rounded bg-foreground/10 w-1/2" />
-        </div>
-        <div className="grid grid-cols-2 gap-2 mt-4">
-          <div className="aspect-square rounded-lg" style={{ background: softBg, border: `1px solid ${soft}` }} />
-          <div className="aspect-square rounded-lg" style={{ background: softBg, border: `1px solid ${soft}` }} />
-          <div className="aspect-square rounded-lg" style={{ background: softBg, border: `1px solid ${soft}` }} />
-          <div className="aspect-square rounded-lg" style={{ background: accent, opacity: 0.8 }} />
+    <div className="snap-start w-[280px] flex-shrink-0">
+      <div className="w-full h-[400px] rounded-[2.5rem] border-[8px] border-foreground/80 bg-background overflow-hidden shadow-xl relative">
+        <div className="absolute top-2 left-1/2 -translate-x-1/2 w-16 h-4 rounded-full bg-foreground/80 z-10" />
+        <div className="w-full h-full p-5 flex flex-col gap-3" style={{ background: `radial-gradient(circle at 50% 0%, ${softBg}, transparent 70%)` }}>
+          <div className="text-[10px] font-mono mt-2" style={{ color: accent }}>0{index} / 0{total}</div>
+          <div className="h-6 w-3/4 rounded-md bg-foreground/40" />
+          <div className="h-2 w-1/2 rounded-full bg-foreground/15" />
+          <div className="mt-3 space-y-2">
+            <div className="h-12 rounded-xl border" style={{ borderColor: soft, background: softBg }} />
+            <div className="h-12 rounded-xl border" style={{ borderColor: soft, background: softBg }} />
+            <div className="h-12 rounded-xl border" style={{ borderColor: soft, background: softBg }} />
+          </div>
+          <div className="mt-auto h-10 rounded-xl" style={{ background: accent }} />
         </div>
       </div>
+      <h3 className="mt-5 font-semibold">{title}</h3>
+      <p className="text-sm text-muted-foreground mt-1">{desc}</p>
+    </div>
+  );
+}
+
+function StoreCard({ accent, icon, store, rating, reviews }: { accent: string; icon: React.ReactNode; store: string; rating: string; reviews: string }) {
+  const soft = `color-mix(in oklab, ${accent} 22%, transparent)`;
+  return (
+    <div className="rounded-2xl border p-6" style={{ borderColor: soft }}>
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2">{icon}<span className="font-semibold">{store}</span></div>
+        <Download size={16} style={{ color: accent }} />
+      </div>
+      <div className="mt-6 flex items-baseline gap-2">
+        <Star size={16} className="fill-current" style={{ color: accent }} />
+        <span className="text-3xl font-semibold tabular-nums">{rating}</span>
+        <span className="text-xs text-muted-foreground">/ 5.0</span>
+      </div>
+      <div className="text-xs text-muted-foreground mt-1">{reviews} reviews</div>
     </div>
   );
 }
