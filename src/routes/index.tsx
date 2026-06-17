@@ -125,7 +125,7 @@ function Home() {
               </div>
             );
             return s.href ? (
-              <Link key={s.title} to={s.href} className="block">{inner}</Link>
+              <Link key={s.title} to={s.href} className="block cursor-pointer">{inner}</Link>
             ) : (
               <div key={s.title}>{inner}</div>
             );

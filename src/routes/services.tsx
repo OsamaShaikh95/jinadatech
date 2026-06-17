@@ -86,7 +86,7 @@ function Services() {
               </div>
             );
             return s.href ? (
-              <Link key={s.title} to={s.href} className="block">
+              <Link key={s.title} to={s.href} className="block cursor-pointer">
                 {Card}
               </Link>
             ) : (
