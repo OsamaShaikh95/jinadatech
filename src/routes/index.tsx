@@ -93,11 +93,11 @@ function Home() {
           title={<>End‑to‑end <span className="text-gradient-brand">technology partner</span></>}
           description="From first prototype to scaled product. Six disciplines, one senior team."
         />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-6 gap-4">
-          {services.map((s, i) => {
-            const span = i < 3 ? "lg:col-span-2" : "lg:col-span-3";
+        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          {services.map((s) => {
             return (
-              <div key={s.title} className={`group relative glass rounded-2xl p-6 hover:border-white/20 transition overflow-hidden ${span}`}>
+              <div key={s.title} className="group relative glass rounded-2xl p-6 hover:border-white/20 transition overflow-hidden">
+
                 <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-[var(--brand-blue)]/0 via-[var(--brand-blue-soft)]/0 to-[var(--brand-blue)]/0 group-hover:from-[var(--brand-blue)]/20 group-hover:via-[var(--brand-blue-soft)]/15 group-hover:to-[var(--brand-blue)]/20 transition opacity-60 pointer-events-none" />
                 <div className="relative">
                   <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl glass-strong text-[var(--brand-blue)] group-hover:text-[var(--brand-blue-soft)] transition">
