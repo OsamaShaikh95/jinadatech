@@ -95,7 +95,7 @@ function Home() {
         />
         <div className="grid sm:grid-cols-2 lg:grid-cols-6 gap-4">
           {services.map((s, i) => {
-            const span = i < 2 ? "lg:col-span-3" : "lg:col-span-2";
+            const span = i < 3 ? "lg:col-span-2" : "lg:col-span-3";
             return (
               <div key={s.title} className={`group relative glass rounded-2xl p-6 hover:border-white/20 transition overflow-hidden ${span}`}>
                 <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-[var(--brand-blue)]/0 via-[var(--brand-blue-soft)]/0 to-[var(--brand-blue)]/0 group-hover:from-[var(--brand-blue)]/20 group-hover:via-[var(--brand-blue-soft)]/15 group-hover:to-[var(--brand-blue)]/20 transition opacity-60 pointer-events-none" />
