@@ -84,7 +84,7 @@ function About() {
                 "Senior team of engineers, designers and growth operators",
                 "Serving startups, local businesses and D2C brands",
                 "End-to-end: strategy, product, engineering and growth",
-                "Trusted on 80+ shipped products to date",
+                "A fresh startup bringing senior craft and modern AI to every build",
               ].map((p) => (
                 <li key={p} className="glass rounded-xl p-4 text-sm">{p}</li>
               ))}
