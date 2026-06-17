@@ -44,7 +44,7 @@ function Services() {
                 </div>
                 <h3 className="mt-4 text-lg font-semibold leading-snug min-h-[3.5rem]">{s.title}</h3>
                 <p className="mt-1 text-xs uppercase tracking-widest text-[var(--brand-blue)] leading-snug min-h-[2.25rem]">{s.subtitle}</p>
-                <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
+                <p className="mt-2 text-sm text-muted-foreground min-h-[6.5rem]">{s.desc}</p>
                 <ul className="mt-4 space-y-2">
                   {s.points.map((p) => (
                     <li key={p} className="flex items-center gap-2 text-sm text-foreground/90">
