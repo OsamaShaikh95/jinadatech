@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Handshake, Users, Code2, Megaphone, TrendingUp, Bot, LifeBuoy } from "lucide-react";
-import { ServicePage } from "@/components/site/ServicePage";
+import { CompletePartnershipLayout } from "@/components/site/service-layouts/CompletePartnershipLayout";
 
 const SITE = "https://jinadatech.com";
 const SLUG = "complete-partnership";
@@ -30,7 +30,7 @@ export const Route = createFileRoute("/services/complete-partnership")({
 
 function Page() {
   return (
-    <ServicePage
+    <CompletePartnershipLayout
       slug={SLUG}
       icon={Handshake}
       eyebrow="Complete Partnership"
